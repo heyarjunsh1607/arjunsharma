@@ -10,6 +10,7 @@ import {
 } from "@/components/search-accents";
 import { ServiceVisual } from "@/components/service-visual";
 import { BottomDock } from "@/components/bottom-dock";
+import { OutcomePlayground } from "@/components/outcome-playground";
 import { DiscoveryDesktop } from "@/components/discovery-desktop";
 import { BookingForm } from "@/components/booking-form";
 import Link from "next/link";
@@ -439,7 +440,9 @@ export default function Home() {
           </div>
         </section>
       </main>
-      <footer className="wrap footer">
+      <footer className="outcome-footer">
+        <OutcomePlayground />
+        <div className="wrap footer">
         <Link className="wordmark" href="/">
           <span className="brand-glyph" aria-hidden="true">
             ⌕
@@ -455,10 +458,8 @@ export default function Home() {
           </a>
         </nav>
         <span>© {new Date().getFullYear()} Arjun Sharma</span>
+        </div>
       </footer>
-      <div className="footer-wordmark" aria-hidden="true">
-        get found<span>↗</span>
-      </div>
     </>
   );
 }

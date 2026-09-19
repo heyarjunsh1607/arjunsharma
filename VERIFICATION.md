@@ -76,3 +76,13 @@ Verified locally on 2026-09-19. Hero text matches: “Get a consistent flow of l
 - Browser checks at 1440px, 768px and 390px confirm three, two and one service columns respectively, with no horizontal overflow.
 - Desktop and mobile hero/service screenshots inspected; all six titles present and all H2s remain questions.
 - This change is local. Lighthouse scores above predate these latest illustrations and were not rerun.
+
+## Minimal dock and interactive outcome footer
+
+Verified locally on 2026-09-19. The dock has four links and no Home item. Eight dimensional SEO outcome blocks support pointer dragging, release velocity, gravity, collisions, keyboard movement/tossing, and reset. The client component uses no additional dependencies; transient positions live outside React render state, animation stops after settling and while offscreen, and reduced motion disables automatic movement.
+
+- Production build and lint pass.
+- Real browser mouse drag and throw, touch drag, reset, keyboard movement and toss, and reduced motion checks pass without runtime errors.
+- Layouts checked at 320, 390, 650, 768, 1024 and 1440px; no horizontal overflow. Intermediate-width blocks remain inside their stage.
+- Final axe scan reports zero violations, with gradient/overlap contrast items left for manual review. This is not a complete assistive-technology audit.
+- Changes are local; no push or deployment performed for this update.
