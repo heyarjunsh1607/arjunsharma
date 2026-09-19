@@ -1,9 +1,9 @@
 export const site = {
   name: "Arjun Sharma",
   url: "https://arjunsharma.co",
-  title: "SEO for Design Studios | Arjun Sharma",
+  title: "SEO & AI Search for Design Studios | Arjun Sharma",
   description:
-    "I help design studios generate more qualified inbound leads through Google SEO, AI Search and better positioning.",
+    "Grow your design studio with Google SEO, AI Search optimization and content that attracts qualified leads. Work with Arjun Sharma. Book a discovery call.",
   bookingUrl:
     process.env.CAL_BOOKING_URL?.trim() ||
     "https://cal.com/arjun-sharma/discovery-call",
