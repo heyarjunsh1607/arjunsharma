@@ -15,6 +15,11 @@ const interDisplay = localFont({
       weight: "600",
       style: "normal",
     },
+    {
+      path: "./fonts/InterDisplay-Bold.woff2",
+      weight: "700",
+      style: "normal",
+    },
   ],
   display: "swap",
   variable: "--font-inter-display",

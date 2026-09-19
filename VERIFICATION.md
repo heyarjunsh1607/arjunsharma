@@ -67,3 +67,12 @@ Supply a real portrait and verified proof when available. Proof is optional and 
 Latest production build and lint pass. Verified real Inter Display in computed heading styles with retained -0.075em hero tracking. Desktop/mobile views checked; no horizontal overflow. All H2s remain questions. Axe scan: zero violations.
 
 Local mobile Lighthouse: performance 94, accessibility 100, best practices 100, SEO 100. LCP 3.1 s; CLS 0; total blocking time 20 ms. Report: artifacts/lighthouse-display-mobile.report.html. These are local lab results.
+
+## Six illustrated services and updated hero
+
+Verified locally on 2026-09-19. Hero text matches: “Get a consistent flow of leads with Google & AI Search”. The six service cards use distinct inline SVG illustrations and concise design-studio copy. No new client-side JavaScript or illustration library was added.
+
+- ESLint and production build pass; homepage remains statically prerendered.
+- Browser checks at 1440px, 768px and 390px confirm three, two and one service columns respectively, with no horizontal overflow.
+- Desktop and mobile hero/service screenshots inspected; all six titles present and all H2s remain questions.
+- This change is local. Lighthouse scores above predate these latest illustrations and were not rerun.

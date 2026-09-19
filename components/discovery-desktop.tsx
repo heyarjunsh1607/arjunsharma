@@ -10,7 +10,7 @@ export function WindowBar({ title }: { title: string }) {
         <i />
         <i />
       </span>
-      <span>{title}</span>
+      <span className="window-bar-title">{title}</span>
       <span aria-hidden="true">↗</span>
     </div>
   );
@@ -59,7 +59,6 @@ export function DiscoveryDesktop() {
         <WindowBar title="discovery.exe" />
         <div className="discovery-toolbar">
           <span className="address-label">your-next-client / discovery</span>
-          <span className="demo-badge">INTERACTIVE DEMO</span>
         </div>
         <div className="discovery-content">
           <div
@@ -112,12 +111,6 @@ export function DiscoveryDesktop() {
                   : "Make your expertise easy to understand, with useful content and trusted third-party mentions."}
               </p>
             </div>
-          </div>
-          <div className="discovery-footer">
-            <span>
-              <i /> Built for discovery. Designed for people.
-            </span>
-            <span>Illustration, not a live search result.</span>
           </div>
         </div>
       </div>

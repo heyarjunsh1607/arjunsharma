@@ -1,5 +1,4 @@
 import {
-  BrandTile,
   SearchObject,
   JourneyObject,
   CursorObject,
@@ -14,7 +13,7 @@ import { BottomDock } from "@/components/bottom-dock";
 import { DiscoveryDesktop } from "@/components/discovery-desktop";
 import { BookingForm } from "@/components/booking-form";
 import Link from "next/link";
-import { Arrow, BookCall, Eyebrow, ServiceIcon } from "@/components/ui";
+import { Arrow, BookCall, Eyebrow } from "@/components/ui";
 import { faqs, proof, services, site, steps, testimonial } from "@/lib/content";
 
 export default function Home() {
@@ -93,9 +92,8 @@ export default function Home() {
           </p>
           <HeroTokens />
           <h1 id="hero-title">
-            SEO and organic growth
-            <br className="desktop-break" /> for{" "}
-            <span className="serif">design studios.</span>
+            Get a consistent flow of leads{" "}
+            <br className="desktop-break" />with <span className="serif">Google &amp; AI Search</span>
           </h1>
           <p className="hero-description">
             Your studio does great work.{" "}
@@ -110,15 +108,6 @@ export default function Home() {
             <a className="text-link" href="#approach">
               See how I work <span aria-hidden="true">↓</span>
             </a>
-          </div>
-          <div className="hero-credit">
-            <span className="mini-mark" aria-hidden="true">
-              ↗
-            </span>
-            <p>
-              Currently building organic growth systems at{" "}
-              <strong>PixelUp Labs.</strong>
-            </p>
           </div>
           <DiscoveryDesktop />
           <div className="hero-bottom">
@@ -194,29 +183,17 @@ export default function Home() {
               <strong>Give buyers a reason to get in touch.</strong>
             </p>
           </div>
-          <div className="services">
+          <div className="services services-six">
             {services.map((service) => (
-              <article className="service" key={service.number}>
-                <div className="service-top">
-                  {service.symbol === "search" ? (
-                    <BrandTile brand="google" />
-                  ) : service.symbol === "spark" ? (
-                    <BrandTile brand="chatgpt" />
-                  ) : (
-                    <span className="positioning-tile">
-                      <ServiceIcon type={service.symbol} />
-                    </span>
-                  )}
-                  <span>{service.number}</span>
+              <article className="service service-illustrated" key={service.number}>
+                <div className="service-art-panel">
+                  <span className="service-art-number">{service.number}</span>
+                  <ServiceVisual type={service.symbol} />
                 </div>
-                <h3>{service.title}</h3>
-                <p className="service-line">{service.line}</p>
-                <ServiceVisual type={service.symbol} />
-                <ul>
-                  {service.items.map((item) => (
-                    <li key={item}>{item}</li>
-                  ))}
-                </ul>
+                <div className="service-card-copy">
+                  <h3>{service.title}</h3>
+                  <p className="service-line">{service.line}</p>
+                </div>
               </article>
             ))}
           </div>
@@ -458,11 +435,7 @@ export default function Home() {
             </p>
             <EnvelopeObject />
             <BookingForm bookingUrl={site.bookingUrl} />
-            {site.linkedinUrl ? (
-              <a className="linkedin-link" href={site.linkedinUrl}>
-                Or connect with me on LinkedIn <Arrow diagonal />
-              </a>
-            ) : null}
+
           </div>
         </section>
       </main>

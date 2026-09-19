@@ -21,39 +21,39 @@ if (
 export const services = [
   {
     number: "01",
-    title: "Google Search",
-    line: "SEO for design studios, built around buyer intent.",
-    items: [
-      "Service pages for the work you want",
-      "Case studies and comparison pages",
-      "Content that answers buying questions",
-      "Technical SEO and authority building",
-    ],
-    symbol: "search",
+    title: "AI Search Optimization",
+    line: "Make your studio easier to discover and reference when buyers ask AI who to hire.",
+    symbol: "ai",
   },
   {
     number: "02",
-    title: "AI Search",
-    line: "Help buyers discover your studio when they ask AI who to hire.",
-    items: [
-      "Questions buyers ask before hiring",
-      "A clear, consistent studio identity",
-      "Content AI can understand and reference",
-      "Relevant mentions beyond your website",
-    ],
-    symbol: "spark",
+    title: "Search Engine Optimization",
+    line: "SEO for design studios, built around the services and projects your ideal clients are already searching for.",
+    symbol: "search",
   },
   {
     number: "03",
-    title: "Positioning",
-    line: "Make it obvious who you help and why you’re a fit.",
-    items: [
-      "A clear ideal client and offer",
-      "Messaging backed by real proof",
-      "Case studies that answer buyer questions",
-      "A clear path from interest to enquiry",
-    ],
-    symbol: "funnel",
+    title: "Content Creation",
+    line: "Turn your expertise into case studies and useful content that helps buyers see why you’re the right fit.",
+    symbol: "content",
+  },
+  {
+    number: "04",
+    title: "Technical SEO Optimization",
+    line: "Fix slow pages, crawl issues and site structure so buyers and search engines can reach your best work.",
+    symbol: "technical",
+  },
+  {
+    number: "05",
+    title: "Authority & Link Building",
+    line: "Earn relevant links and third-party mentions that build credibility for your studio beyond your own website.",
+    symbol: "authority",
+  },
+  {
+    number: "06",
+    title: "Local SEO",
+    line: "Help nearby clients find your studio through relevant local searches, location pages and your Google Business Profile.",
+    symbol: "local",
   },
 ];
 export const steps = [
