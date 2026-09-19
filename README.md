@@ -35,13 +35,13 @@ The production server defaults to port 3000. Use `npm start -- --port 3001` to c
 ## SEO
 
 - Title, description, canonical, Open Graph and Twitter metadata.
-- Generated social images, favicon, robots.txt and a single-URL sitemap.
+- Generated social images, favicon, robots.txt, a single-URL sitemap and `/llms.txt` (a plain-text summary for AI crawlers, generated from `lib/content.ts`).
 - Person, WebSite, Service and FAQPage JSON-LD. No fabricated address, reviews or LocalBusiness details. FAQ markup is not a promise of Google rich results.
 - One H1, question-form H2s, H3s for subtopics, visible FAQ text matching JSON-LD.
 - Reusable layout and content modules support future pages without creating thin duplicate routes.
 - Use route-specific titles, descriptions and canonicals when adding future pages; update the sitemap.
 
-Deploy on a Next.js-compatible host. Connect arjunsharma.co, redirect www and any alternate hosts to the canonical HTTPS domain, and register the sitemap in Search Console after deployment. Hosting-level redirects and production Core Web Vitals need verification on the live domain.
+Deploy on a Next.js-compatible host. Connect www.arjunsharma.co as the canonical host, redirect the apex arjunsharma.co and any alternate hosts to it over HTTPS, and register the sitemap in Search Console after deployment. Hosting-level redirects and production Core Web Vitals need verification on the live domain.
 
 ## Editing
 

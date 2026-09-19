@@ -1,6 +1,6 @@
 export const site = {
   name: "Arjun Sharma",
-  url: "https://arjunsharma.co",
+  url: "https://www.arjunsharma.co",
   title: "SEO & AI Search for Design Studios | Arjun Sharma",
   description:
     "Grow your design studio with Google SEO, AI Search optimization and content that attracts qualified leads. Work with Arjun Sharma. Book a discovery call.",
