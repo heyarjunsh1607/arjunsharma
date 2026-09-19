@@ -558,7 +558,7 @@ h1 {
 details[open] .faq-plus {
   transform: rotate(45deg);
 }
-.faqs details > p {
+.faqs .faq-answer > p {
   padding: 0 28px 23px 0;
   font-size: 13px;
   color: var(--muted);
@@ -2213,7 +2213,7 @@ h3 {
 .service > p,
 .service > .service-line,
 .check-list li,
-.faqs details > p,
+.faqs .faq-answer > p,
 .not-fit > p,
 .contact-inner > p:not(.eyebrow) {
   font-size: 16px;
@@ -2386,7 +2386,7 @@ nav,
   .service > p,
   .service > .service-line,
   .check-list li,
-  .faqs details > p,
+  .faqs .faq-answer > p,
   .not-fit > p,
   .contact-inner > p:not(.eyebrow) {
     font-size: 16px;
@@ -3511,26 +3511,35 @@ h3,
 }
 
 /* A tactile footer, with a small event-driven physics island. */
-.outcome-footer { background: #f1eff5; border-top: 1px solid #ded8e8; padding-top: 70px; }
-.outcome-heading { display: flex; align-items: flex-end; justify-content: space-between; gap: 30px; }
-.outcome-heading h2 { max-width: 650px; font-size: clamp(30px, 3.2vw, 44px); margin-top: 18px; }
-.outcome-heading .serif { color: var(--violet); }
+.outcome-footer { background: #f1eff5; border-top: 1px solid #ded8e8; padding-top: 48px; }
 .outcome-reset {
-  display: flex; align-items: center; gap: 8px; flex-shrink: 0;
-  min-height: 44px; padding: 8px 13px; border-radius: 24px;
-  border: 1px solid #d5cedf; background: #f9f8fb; color: #68606f;
-  font: inherit; font-size: 12px; letter-spacing: -.025em; cursor: pointer;
+  position: absolute; top: 12px; right: max(16px, calc(50% - var(--content-max) / 2 + 44px)); z-index: 20;
+  display: flex; align-items: center; gap: 5px;
+  min-height: 34px; padding: 6px 11px; border-radius: 17px;
+  border: 1px solid transparent; background: transparent; color: #8a80a0;
+  font: inherit; font-size: 11.5px; letter-spacing: -.02em; cursor: pointer; opacity: .8;
+  transition: opacity .15s ease, background .15s ease, border-color .15s ease;
 }
-.outcome-reset span { font-size: 22px; line-height: 1; }
-.outcome-reset:hover { background: white; border-color: #ab98ca; }
-.outcome-reset:focus-visible, .outcome-block:focus-visible { outline: 3px solid #7154dc; outline-offset: 6px; }
-.outcome-stage { position: relative; height: 400px; margin-top: 26px; overflow: hidden; isolation: isolate; border-radius: 24px; }
-.outcome-watermark {
-  position: absolute; top: 22px; width: 100%; text-align: center;
+.outcome-reset span { font-size: 15px; line-height: 1; }
+.outcome-reset:hover, .outcome-reset:focus-visible { opacity: 1; background: #ffffffb3; border-color: #ded7e8; color: #5f5673; }
+.outcome-reset:focus-visible, .outcome-block:focus-visible { outline: 3px solid #7154dc; outline-offset: 4px; }
+/* Full-bleed stage: blocks are only clipped at the viewport edges, never top or bottom. */
+.outcome-stage { position: relative; height: 400px; margin-bottom: 40px; overflow-x: clip; isolation: isolate; }
+/* Engraved watermark: the fill is the recess floor; two blended copies add the shaded
+   top edge (multiply) and the lit bottom lip (screen), both clipped to the glyphs. */
+.outcome-watermark, .outcome-watermark::before, .outcome-watermark::after {
+  position: absolute; top: 22px; left: 0; width: 100%; text-align: center; white-space: pre;
   font-family: var(--font-inter-display), sans-serif; font-size: clamp(50px, 7vw, 100px);
-  font-weight: 700; line-height: .95; letter-spacing: -.065em; color: #8b7c9c;
-  text-shadow: 0 2px 1px white; pointer-events: none; user-select: none;
+  font-weight: 700; line-height: .95; letter-spacing: -.065em;
+  pointer-events: none; user-select: none;
 }
+.outcome-watermark { color: #a99cbd; text-shadow: 0 1px 0 #ffffff80; }
+.outcome-watermark::before, .outcome-watermark::after {
+  content: attr(data-text); top: 0; color: transparent;
+  -webkit-background-clip: text; background-clip: text;
+}
+.outcome-watermark::before { background-color: #d8d1e3; text-shadow: 0 -.02em .012em #000; mix-blend-mode: screen; }
+.outcome-watermark::after { background-color: #a294b5; text-shadow: 0 .035em .025em #fff; mix-blend-mode: multiply; }
 .outcome-floor {
   position: absolute; inset: 45% 0 0; z-index: -1;
   background: radial-gradient(ellipse at 50% 100%, #d9d0e5a6, transparent 70%);
@@ -3561,8 +3570,6 @@ h3,
 .outcome-cream { --block-top: #fff6e6; --block-bottom: #ebd9bf; --block-edge: #beaa8c; --block-ink: #6f5436; }
 .outcome-pink { --block-top: #f9e2ef; --block-bottom: #e8bbd4; --block-edge: #bb8aa6; --block-ink: #75405e; }
 .outcome-blue { --block-top: #dceefb; --block-bottom: #b4d5ec; --block-edge: #89abc4; --block-ink: #375c78; }
-.outcome-instructions { text-align: center; font-size: 12px; color: #6c6278; margin: 19px 0 45px; letter-spacing: -.02em; }
-.outcome-instructions > span:first-child { color: #9684b2; margin-right: 7px; }
 .outcome-footer .footer { border-top: 1px solid #dcd5e5; padding-block: 27px; }
 @media (max-width: 850px) { .outcome-stage { height: 490px; } }
 @media (max-width: 600px) {
@@ -3571,15 +3578,33 @@ h3,
   .dock-item .dock-icon { display: none; }
   .dock-label { font-size: 12px; }
   .dock-book { margin-left: 4px; padding-inline: 13px; }
-  .outcome-footer { padding-top: 45px; }
-  .outcome-heading { display: block; }
-  .outcome-heading h2 { font-size: 32px; }
-  .outcome-heading .eyebrow { font-size: 9px; }
-  .outcome-reset { margin-top: 20px; }
-  .outcome-stage { height: 490px; margin-top: 12px; margin-inline: -8px; }
-  .outcome-watermark { top: 20px; font-size: 51px; }
+  .outcome-footer { padding-top: 32px; }
+  .outcome-reset { top: 8px; right: 8px; }
+  .outcome-stage { height: 490px; margin-bottom: 28px; }
+  .outcome-watermark { top: 20px; }
+  .outcome-watermark, .outcome-watermark::before, .outcome-watermark::after { font-size: 51px; }
   .outcome-block { width: clamp(122px, 39vw, 170px); height: 70px; padding: 12px; font-size: 16px; gap: 8px; border-radius: 14px; }
   .outcome-block-icon { font-size: 23px; }
-  .outcome-instructions { max-width: 270px; margin: 16px auto 30px; }
 }
 @media (prefers-reduced-motion: reduce) { .dock-item { transition: none; } }
+
+/* FAQ: one item open at a time (native `name`), answers ease open and closed. */
+.faqs details::details-content {
+  display: grid;
+  grid-template-rows: 0fr;
+  overflow: hidden;
+  transition: grid-template-rows .4s cubic-bezier(.4, 0, .2, 1), content-visibility .4s allow-discrete;
+}
+.faqs details[open]::details-content { grid-template-rows: 1fr; }
+.faq-answer { min-height: 0; }
+.faqs .faq-answer > p {
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: opacity .3s ease, transform .3s ease;
+}
+.faqs details[open] .faq-answer > p { opacity: 1; transform: none; transition-delay: .08s; }
+.faq-plus { display: inline-block; transition: transform .3s cubic-bezier(.4, 0, .2, 1); }
+@media (prefers-reduced-motion: reduce) {
+  .faqs details::details-content, .faqs .faq-answer > p, .faq-plus { transition: none; }
+  .faqs .faq-answer > p { transform: none; }
+}

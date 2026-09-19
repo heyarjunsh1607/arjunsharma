@@ -403,15 +403,17 @@ export default function Home() {
             <ChatObject />
           </div>
           <div className="faqs">
-            {faqs.map((faq) => (
-              <details key={faq.question}>
+            {faqs.map((faq, index) => (
+              <details key={faq.question} name="faq" open={index === 0 || undefined}>
                 <summary>
                   <h3>{faq.question}</h3>
                   <span className="faq-plus" aria-hidden="true">
                     +
                   </span>
                 </summary>
-                <p>{faq.answer}</p>
+                <div className="faq-answer">
+                  <p>{faq.answer}</p>
+                </div>
               </details>
             ))}
           </div>

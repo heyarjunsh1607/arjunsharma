@@ -1,6 +1,6 @@
 # Arjun Sharma
 
-A statically prerendered Next.js App Router landing page. TypeScript, Tailwind CSS v4, server components and native HTML FAQ controls. Two small client components handle the discovery demo and booking form. Inter, Inter Display and JetBrains Mono are self-hosted through next/font with Latin subsets and font-swap support. No runtime font requests to Google, trackers, animation libraries, calendar embeds or stock imagery.
+A statically prerendered Next.js App Router landing page. TypeScript, Tailwind CSS v4, server components and native HTML FAQ controls. Two small client components handle the discovery demo and booking form. Inter, Inter Display and JetBrains Mono are self-hosted through next/font with Latin subsets and font-swap support. No runtime font requests to Google, trackers, calendar embeds or stock imagery. The only third-party runtime library is Matter.js, which powers the footer's block playground and is fetched lazily once the footer scrolls near the viewport.
 
 ## Run
 
@@ -58,6 +58,7 @@ No production deployment or external publishing is performed by local builds.
 The Heyclicky reference informs the window chrome and tactile controls. Original search-themed illustrations, violet and lime colors, and a pixel crawler give this page its own identity. The search window switches between Google and AI discovery examples. Click the crawler for field notes or open the field-notes folder for an easter egg. All work by keyboard and respect reduced-motion preferences. Illustrations are explicitly labeled and do not present fabricated results.
 
 - `components/discovery-desktop.tsx`: channel switch, crawler and secret folder.
+- `components/outcome-playground.tsx`: footer block playground. Matter.js rigid bodies with a pointer spring for dragging, keyboard nudge/toss, sleep-based idle and reduced-motion fallback.
 - `components/booking-form.tsx`: accessible booking fields and redirect state.
 - `lib/booking.ts`: validated Cal.com destination and query encoding.
 - `tests/booking.test.mjs`: destination/input validation and prefill tests.

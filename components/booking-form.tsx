@@ -52,7 +52,7 @@ export function BookingForm({ bookingUrl }: { bookingUrl: string }) {
         </p>
         <div className="booking-fields">
           <label htmlFor="booking-name">
-            Your name
+            <span className="sr-only">Your name</span>
             <input
               id="booking-name"
               name="name"
@@ -64,7 +64,7 @@ export function BookingForm({ bookingUrl }: { bookingUrl: string }) {
             />
           </label>
           <label htmlFor="booking-email">
-            Your email
+            <span className="sr-only">Your email</span>
             <input
               id="booking-email"
               name="email"
