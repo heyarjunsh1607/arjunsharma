@@ -1,6 +1,6 @@
 # Arjun Sharma
 
-A statically prerendered Next.js App Router landing page. TypeScript, Tailwind CSS v4, server components and native HTML FAQ controls. Two small client components handle the discovery demo and booking form. Inter and JetBrains Mono are self-hosted through next/font with Latin subsets and font-swap support. No runtime font requests to Google, trackers, animation libraries, calendar embeds or stock imagery.
+A statically prerendered Next.js App Router landing page. TypeScript, Tailwind CSS v4, server components and native HTML FAQ controls. Two small client components handle the discovery demo and booking form. Inter, Inter Display and JetBrains Mono are self-hosted through next/font with Latin subsets and font-swap support. No runtime font requests to Google, trackers, animation libraries, calendar embeds or stock imagery.
 
 ## Run
 
@@ -65,3 +65,5 @@ The Heyclicky reference informs the window chrome and tactile controls. Original
 ## Typography and navigation
 
 Inter uses tight tracking (-0.045em for body, -0.075em for the hero). Main body text is 16–18px. JetBrains Mono is used for heading labels. A fixed bottom dock replaces the top navigation, with persistent labels, keyboard focus states, hover magnification and reduced-motion support. The page has bottom padding so footer content clears the dock.
+
+Inter Display Medium and SemiBold are used for headings, with the same tight spacing. Source and license notes are in `app/fonts/README.md`. Copy is written for established studio founders who rely on referrals and want more qualified enquiries. Key ideas use selective bold and soft highlights. Decorative platform tiles, search/chat objects, targets and envelope details are static CSS/SVG elements with no extra client JavaScript.

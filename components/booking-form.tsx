@@ -43,9 +43,12 @@ export function BookingForm({ bookingUrl }: { bookingUrl: string }) {
         <span aria-hidden="true">↗</span>
       </div>
       <form onSubmit={submit} className="booking-form">
-        <p className="booking-heading">Let’s talk about your studio.</p>
+        <p className="booking-heading">
+          Find your studio’s next growth opportunity.
+        </p>
         <p className="booking-subtitle">
-          Enter your details, then choose a time. You’ll also get my occasional notes on studio growth.
+          Enter your details, then choose a time. You’ll also get my occasional
+          notes on studio growth.
         </p>
         <div className="booking-fields">
           <label htmlFor="booking-name">

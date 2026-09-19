@@ -61,3 +61,9 @@ The supplied Cal.com event URL is now configured. Redirect construction and inpu
 
 
 Supply a real portrait and verified proof when available. Proof is optional and hidden by default. Configure the production domain, canonical redirects and hosting, then check live HTTP behavior, booking flow and field Core Web Vitals. Local Lighthouse is not a live-domain performance guarantee or ranking guarantee.
+
+## Inter Display, founder copy and extended accents
+
+Latest production build and lint pass. Verified real Inter Display in computed heading styles with retained -0.075em hero tracking. Desktop/mobile views checked; no horizontal overflow. All H2s remain questions. Axe scan: zero violations.
+
+Local mobile Lighthouse: performance 94, accessibility 100, best practices 100, SEO 100. LCP 3.1 s; CLS 0; total blocking time 20 ms. Report: artifacts/lighthouse-display-mobile.report.html. These are local lab results.

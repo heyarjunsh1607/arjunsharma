@@ -1,9 +1,37 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import { site } from "@/lib/content";
 import "./globals.css";
-const inter = Inter({ subsets: ["latin"], display: "swap", variable: "--font-inter" });
-const jetbrains = JetBrains_Mono({ subsets: ["latin"], weight: ["400", "500"], display: "swap", variable: "--font-jetbrains", preload: false });
+const interDisplay = localFont({
+  src: [
+    {
+      path: "./fonts/InterDisplay-Medium.woff2",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "./fonts/InterDisplay-SemiBold.woff2",
+      weight: "600",
+      style: "normal",
+    },
+  ],
+  display: "swap",
+  variable: "--font-inter-display",
+  fallback: ["Arial"],
+});
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-inter",
+});
+const jetbrains = JetBrains_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  display: "swap",
+  variable: "--font-jetbrains",
+  preload: false,
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -47,7 +75,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${jetbrains.variable}`}>
+    <html
+      lang="en"
+      className={`${inter.variable} ${interDisplay.variable} ${jetbrains.variable}`}
+    >
       <body>
         <a className="skip-link" href="#main">
           Skip to content

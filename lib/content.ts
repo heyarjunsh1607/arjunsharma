@@ -4,8 +4,12 @@ export const site = {
   title: "SEO for Design Studios | Arjun Sharma",
   description:
     "I help design studios generate more qualified inbound leads through Google SEO, AI Search and better positioning.",
-  bookingUrl: process.env.CAL_BOOKING_URL?.trim() || "https://cal.com/arjun-sharma/discovery-call",
-  linkedinUrl: process.env.NEXT_PUBLIC_LINKEDIN_URL?.trim() || "https://www.linkedin.com/in/arjunsh1607/",
+  bookingUrl:
+    process.env.CAL_BOOKING_URL?.trim() ||
+    "https://cal.com/arjun-sharma/discovery-call",
+  linkedinUrl:
+    process.env.NEXT_PUBLIC_LINKEDIN_URL?.trim() ||
+    "https://www.linkedin.com/in/arjunsh1607/",
   twitterUrl: "https://x.com/arjunsh1607",
 };
 if (
@@ -20,9 +24,9 @@ export const services = [
     title: "Google Search",
     line: "SEO for design studios, built around buyer intent.",
     items: [
-      "Service and commercial pages",
+      "Service pages for the work you want",
       "Case studies and comparison pages",
-      "High-intent content",
+      "Content that answers buying questions",
       "Technical SEO and authority building",
     ],
     symbol: "search",
@@ -30,24 +34,24 @@ export const services = [
   {
     number: "02",
     title: "AI Search",
-    line: "Be part of the shortlist.",
+    line: "Help buyers discover your studio when they ask AI who to hire.",
     items: [
-      "Buyer questions and AI discovery journeys",
-      "Clear brand and entity signals",
-      "Useful, referenceable content",
-      "Relevant third-party mentions",
+      "Questions buyers ask before hiring",
+      "A clear, consistent studio identity",
+      "Content AI can understand and reference",
+      "Relevant mentions beyond your website",
     ],
     symbol: "spark",
   },
   {
     number: "03",
     title: "Positioning",
-    line: "Give the right people a reason to choose you.",
+    line: "Make it obvious who you help and why you’re a fit.",
     items: [
-      "Ideal client and positioning",
-      "Service messaging and social proof",
+      "A clear ideal client and offer",
+      "Messaging backed by real proof",
       "Case studies that answer buyer questions",
-      "Conversion paths and useful lead magnets",
+      "A clear path from interest to enquiry",
     ],
     symbol: "funnel",
   },
@@ -55,19 +59,19 @@ export const services = [
 export const steps = [
   [
     "Understand who you want to attract",
-    "Your ideal clients, deal size, services and current pipeline. We start with what a good lead actually looks like.",
+    "Which projects are worth your time? We look at your best clients, project budgets and the work you want more of.",
   ],
   [
     "Find out how they discover agencies",
-    "Google searches, AI prompts, directories, comparisons and communities. Then we work out where you need to show up.",
+    "What do those buyers search for, ask AI and compare? We map where they look before they make a shortlist.",
   ],
   [
     "Build the right assets",
-    "Clear service pages, useful content, stronger case studies and relevant off-site signals. Each one has a job to do.",
+    "Turn your expertise into service pages, case studies and useful content that help a buyer choose you.",
   ],
   [
     "Measure. Learn. Keep building.",
-    "Track discovery, qualified traffic and the conversations they contribute to. Double down on what works.",
+    "Track whether the right buyers find you and get in touch. Use those conversations to decide what to improve next.",
   ],
 ];
 export const faqs = [

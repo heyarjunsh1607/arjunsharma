@@ -1,3 +1,14 @@
+import {
+  BrandTile,
+  SearchObject,
+  JourneyObject,
+  CursorObject,
+  ChatObject,
+  HeroTokens,
+  TargetObject,
+  EnvelopeObject,
+  BookmarkObject,
+} from "@/components/search-accents";
 import { ServiceVisual } from "@/components/service-visual";
 import { BottomDock } from "@/components/bottom-dock";
 import { DiscoveryDesktop } from "@/components/discovery-desktop";
@@ -66,19 +77,33 @@ export default function Home() {
       <BottomDock />
       <main id="main">
         <section className="hero wrap" aria-labelledby="hero-title">
-          <Link href="/" className="wordmark hero-wordmark" aria-label="Arjun Sharma home"><span className="brand-glyph" aria-hidden="true">⌕</span> arjun sharma<span className="brand-dot">.</span></Link>
+          <Link
+            href="/"
+            className="wordmark hero-wordmark"
+            aria-label="Arjun Sharma home"
+          >
+            <span className="brand-glyph" aria-hidden="true">
+              ⌕
+            </span>{" "}
+            arjun sharma<span className="brand-dot">.</span>
+          </Link>
           <p className="hero-kicker">
             <span className="status-dot" /> YOUR STUDIO. FOUND BY THE RIGHT
             PEOPLE.
           </p>
+          <HeroTokens />
           <h1 id="hero-title">
             SEO and organic growth
             <br className="desktop-break" /> for{" "}
             <span className="serif">design studios.</span>
           </h1>
           <p className="hero-description">
-            I help design studios turn Google, AI Search and a clearer website
-            into a source of qualified inbound leads.
+            Your studio does great work.{" "}
+            <strong className="copy-highlight">
+              Your next client should know that.
+            </strong>{" "}
+            I help design studios get found on Google and AI Search, so more of
+            the right buyers come to you.
           </p>
           <div className="hero-actions">
             <BookCall />
@@ -107,21 +132,29 @@ export default function Home() {
         >
           <Eyebrow number="01">THE DISCOVERY GAP</Eyebrow>
           <div className="split">
-            <h2 id="problem-title">
-              Great work.
-              <br />
-              But are the right
-              <br />
-              <span className="muted">people finding it?</span>
-            </h2>
+            <div className="problem-intro">
+              <h2 id="problem-title">
+                Does your pipeline
+                <br />
+                depend on your
+                <br />
+                <span className="serif">next referral?</span>
+              </h2>
+              <SearchObject />
+            </div>
             <div className="prose">
               <p>
-                You have the work. The clients. The case studies. But most new
-                business still comes from someone knowing someone.
+                You’ve built a portfolio you’re proud of. Clients like working
+                with you. But when a project wraps up, you’re back to asking:{" "}
+                <strong>where does the next one come from?</strong>
               </p>
               <p>
-                Referrals are great. Building your entire pipeline around them
-                is unpredictable.
+                Referrals got you here.{" "}
+                <strong className="copy-highlight">
+                  They don’t give you control over what comes next.
+                </strong>{" "}
+                Your buyers are also searching for studios with your exact
+                expertise.
               </p>
               <div className="search-example">
                 <span className="search-label">
@@ -137,8 +170,8 @@ export default function Home() {
                 </p>
               </div>
               <p className="strong">
-                If your studio isn’t in the conversation, your work never gets a
-                chance. That’s the gap I help close.
+                They can’t shortlist a studio they never find. I help you{" "}
+                <strong>show up before they’ve decided who to hire.</strong>
               </p>
             </div>
           </div>
@@ -153,19 +186,27 @@ export default function Home() {
             <h2 id="services-title">
               How do we turn
               <br />
-              discovery into <span className="serif">demand?</span>
+              search into <span className="serif">client conversations?</span>
             </h2>
             <p>
-              Three connected pieces.{" "}
+              Get found. Make your fit clear.
               <br />
-              One goal: more of the right conversations.
+              <strong>Give buyers a reason to get in touch.</strong>
             </p>
           </div>
           <div className="services">
             {services.map((service) => (
               <article className="service" key={service.number}>
                 <div className="service-top">
-                  <ServiceIcon type={service.symbol} />
+                  {service.symbol === "search" ? (
+                    <BrandTile brand="google" />
+                  ) : service.symbol === "spark" ? (
+                    <BrandTile brand="chatgpt" />
+                  ) : (
+                    <span className="positioning-tile">
+                      <ServiceIcon type={service.symbol} />
+                    </span>
+                  )}
                   <span>{service.number}</span>
                 </div>
                 <h3>{service.title}</h3>
@@ -180,7 +221,10 @@ export default function Home() {
             ))}
           </div>
           <div className="service-close">
-            <p>Let’s find out where your next opportunity is.</p>
+            <p>
+              Let’s look at{" "}
+              <strong>how your next client could find you.</strong>
+            </p>
             <BookCall />
           </div>
         </section>
@@ -201,10 +245,13 @@ export default function Home() {
                   with <span className="serif">your buyers?</span>
                 </h2>
                 <p>
-                  A search strategy should come from your business.
-                  <br />
-                  Not a spreadsheet full of keywords.
+                  First, we get clear on{" "}
+                  <strong className="copy-highlight">
+                    which projects you want more of.
+                  </strong>{" "}
+                  Then we build around how those clients choose a studio.
                 </p>
+                <JourneyObject />
               </div>
               <ol className="steps">
                 {steps.map(([title, description], index) => (
@@ -232,6 +279,8 @@ export default function Home() {
               role="img"
               aria-label="Portrait placeholder for Arjun Sharma"
             >
+              <CursorObject />
+              <BookmarkObject />
               <span className="portrait-monogram" aria-hidden="true">
                 as.
               </span>
@@ -243,18 +292,19 @@ export default function Home() {
             </div>
             <div className="prose">
               <h2 id="about-title">
-                How did a website
+                Why work with someone
                 <br />
-                developer end up <span className="serif">here?</span>
+                who knows <span className="serif">studio life?</span>
               </h2>
               <p>
-                I started as a Webflow and Framer developer, working around
-                design studios. I cared about how websites looked and how they
-                worked.
+                I started as a <strong>Webflow and Framer developer</strong>,
+                working around design studios. I know how much thinking goes
+                into the work, and how little of that a buyer sees at first
+                glance.
               </p>
               <p>
-                Then I got more interested in what happened before someone
-                landed on the website.
+                A good-looking website matters. But I became more interested in
+                the question behind it:
               </p>
               <blockquote>
                 How do the right people find you, trust you, and become a
@@ -267,8 +317,10 @@ export default function Home() {
                 companies.
               </p>
               <p>
-                I’m building, testing and documenting what I learn along the
-                way.
+                That’s the perspective I bring:{" "}
+                <strong className="copy-highlight">
+                  make your expertise easier to find, understand and choose.
+                </strong>
               </p>
               <span className="signature">Arjun.</span>
             </div>
@@ -312,6 +364,7 @@ export default function Home() {
             <br />
             for <span className="serif">your studio?</span>
           </h2>
+          <TargetObject />
           <div className="fit-grid">
             <div>
               <h3>We’ll probably work well together if...</h3>
@@ -319,10 +372,10 @@ export default function Home() {
                 {[
                   "You run a design, branding, Webflow or creative studio.",
                   "You have good work and real clients to show for it.",
-                  "Most business still comes from referrals or founder outreach.",
-                  "You want more inbound without becoming a content machine.",
+                  "You still carry most of the responsibility for finding the next client.",
+                  "You want qualified enquiries, without posting every day.",
                   "You want buyers to find you on Google and through AI Search.",
-                  "Your website looks good but creates too few opportunities.",
+                  "Your portfolio gets compliments, but too few client enquiries.",
                 ].map((text) => (
                   <li key={text}>
                     <span aria-hidden="true">✓</span>
@@ -347,9 +400,10 @@ export default function Home() {
                 ))}
               </ul>
               <p>
-                Good organic growth takes a clear offer,
-                <br />
-                good work and a little patience.
+                The foundation:{" "}
+                <strong>
+                  a clear offer, real expertise and the patience to build.
+                </strong>
               </p>
             </div>
           </div>
@@ -368,6 +422,7 @@ export default function Home() {
               <br />
               on <span className="serif">your mind?</span>
             </h2>
+            <ChatObject />
           </div>
           <div className="faqs">
             {faqs.map((faq) => (
@@ -393,11 +448,15 @@ export default function Home() {
               <span className="status-dot" /> YOUR NEXT CHAPTER
             </p>
             <h2 id="contact-title">
-              Your next client is looking.
+              Ready to be found by
               <br />
-              <span className="serif">Will they find you?</span>
+              <span className="serif">your next right-fit client?</span>
             </h2>
-            <p>Let’s make sure the right people see what you can do.</p>
+            <p>
+              Tell me about your studio, the projects you want, and{" "}
+              <strong>where new business gets stuck.</strong>
+            </p>
+            <EnvelopeObject />
             <BookingForm bookingUrl={site.bookingUrl} />
             {site.linkedinUrl ? (
               <a className="linkedin-link" href={site.linkedinUrl}>
@@ -415,8 +474,12 @@ export default function Home() {
           arjun sharma<span className="brand-dot">.</span>
         </Link>
         <nav className="footer-socials" aria-label="Social profiles">
-          <a href={site.twitterUrl} target="_blank" rel="noopener noreferrer">X / Twitter <Arrow diagonal /></a>
-          <a href={site.linkedinUrl} target="_blank" rel="noopener noreferrer">LinkedIn <Arrow diagonal /></a>
+          <a href={site.twitterUrl} target="_blank" rel="noopener noreferrer">
+            X / Twitter <Arrow diagonal />
+          </a>
+          <a href={site.linkedinUrl} target="_blank" rel="noopener noreferrer">
+            LinkedIn <Arrow diagonal />
+          </a>
         </nav>
         <span>© {new Date().getFullYear()} Arjun Sharma</span>
       </footer>
