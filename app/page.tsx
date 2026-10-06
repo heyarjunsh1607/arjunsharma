@@ -1,7 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import Link from "next/link";
 import { Arrow } from "@/components/ui";
-import { homepage, newsletter, site } from "@/lib/content";
+import { NewsletterForm } from "@/components/newsletter-form";
+import { homepage, site } from "@/lib/content";
 import styles from "./home.module.css";
 
 export const metadata: Metadata = {
@@ -79,34 +80,7 @@ export default function Home() {
 
         <section className={styles.notes} aria-label="Arjun’s notes">
           <p>Get my notes on turning search into clients:</p>
-          <form
-            action={newsletter.formAction || undefined}
-            method="post"
-            className={styles.signup}
-            aria-label="Subscribe to Arjun’s notes"
-          >
-            <label htmlFor="newsletter-email" className="sr-only">
-              Your email address
-            </label>
-            <input
-              id="newsletter-email"
-              name={newsletter.emailField}
-              type="email"
-              autoComplete="email"
-              placeholder="Email"
-              required
-              maxLength={254}
-              aria-describedby={!newsletter.formAction ? "newsletter-status" : undefined}
-            />
-            <button type="submit" disabled={!newsletter.formAction}>
-              Get notes
-            </button>
-          </form>
-          {!newsletter.formAction ? (
-            <p id="newsletter-status" className={styles.signupStatus}>
-              Newsletter signup opens soon.
-            </p>
-          ) : null}
+          <NewsletterForm />
         </section>
 
         <footer className={styles.footer}>

@@ -12,6 +12,7 @@ export const site = {
     "https://www.linkedin.com/in/arjunsh1607/",
   twitterUrl: "https://x.com/arjunsh1607",
   pixelupUrl: "https://www.pixeluplabs.com/",
+  substackUrl: "https://arjunsh1607.substack.com",
 };
 
 export const homepage = {
@@ -20,15 +21,6 @@ export const homepage = {
     "Growth Engineer at PixelUp Labs. I help design studios get found on Google and AI Search, and turn that visibility into client conversations.",
 };
 
-// Use the hosted form action and email field supplied by the newsletter provider.
-export const newsletter = {
-  formAction: process.env.NEWSLETTER_FORM_ACTION?.trim() || "",
-  emailField: process.env.NEWSLETTER_EMAIL_FIELD?.trim() || "email",
-};
-
-if (newsletter.formAction && !newsletter.formAction.startsWith("https://")) {
-  throw new Error("Newsletter form action must be an HTTPS URL");
-}
 if (
   site.linkedinUrl &&
   !/^https:\/\/(www\.)?linkedin\.com\//.test(site.linkedinUrl)

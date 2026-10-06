@@ -1,6 +1,6 @@
 # Arjun Sharma
 
-A statically prerendered Next.js App Router site. `/` is a minimal personal homepage with a newsletter form, PixelUp Labs link, services link and social profiles. `/services` contains the full SEO and AI Search landing page, discovery demo, booking form and footer playground. TypeScript, Tailwind CSS v4, server components and native HTML FAQ controls. Inter, Inter Display and JetBrains Mono are self-hosted through next/font with Latin subsets and font-swap support. No runtime font requests to Google, trackers, calendar embeds or stock imagery. The only third-party runtime library is Matter.js, which powers the services footer's block playground and is fetched lazily once the footer scrolls near the viewport.
+A statically prerendered Next.js App Router site. `/` is a minimal personal homepage with a newsletter form, PixelUp Labs link, services link and social profiles. `/services` contains the full SEO and AI Search landing page, discovery demo, booking form and footer playground. TypeScript, Tailwind CSS v4, server components and native HTML FAQ controls. Inter, Inter Display and JetBrains Mono are self-hosted through next/font with Latin subsets and font-swap support. No runtime font requests to Google, trackers, calendar embeds or stock imagery. The only extra third-party browser library is Matter.js, which powers the services footer's block playground and is fetched lazily once the footer scrolls near the viewport.
 
 ## Run
 
@@ -16,7 +16,7 @@ The default booking URL is `https://cal.com/arjun-sharma/discovery-call`. Overri
 
 All discovery-call CTAs lead to the name-and-email form. The submit button redirects to Cal.com with encoded `name` and `email` parameters while preserving existing event settings. The form mentions occasional studio-growth updates. It does not save submissions to a separate email list: Cal.com retains information through its booking process, and independent lead capture requires a chosen email platform or database.
 
-Set `NEWSLETTER_FORM_ACTION` to the HTTPS POST action from your newsletter provider's hosted form, and `NEWSLETTER_EMAIL_FIELD` to its email field name (default `email`). Include any provider-required parameters in the action URL. The homepage submits directly to that provider, which handles confirmation and subscription consent. The email field remains editable. Until an action is configured, the submit button stays disabled and the page shows “Newsletter signup opens soon.” No email address is stored or claimed as subscribed locally. Rebuild after changing these settings.
+The homepage's “Get notes” form opens `https://arjunsh1607.substack.com/subscribe` with the entered email prefilled. Readers confirm their subscription on Substack, which handles the subscriber list and email delivery. The form works without JavaScript and does not claim an email is subscribed before that confirmation. Edit `site.substackUrl` in `lib/content.ts` to change publications. No newsletter API keys or separate subscriber storage are needed.
 
 Replace the initial-based portrait placeholder in `app/services/page.tsx` with a real image using `next/image`, explicit width/height and responsive sizes. Do not substitute a fake portrait.
 
@@ -63,6 +63,7 @@ The Heyclicky reference informs the window chrome and tactile controls. Original
 - `components/discovery-desktop.tsx`: channel switch, crawler and secret folder.
 - `components/outcome-playground.tsx`: footer block playground. Matter.js rigid bodies with a pointer spring for dragging, keyboard nudge/toss, sleep-based idle and reduced-motion fallback.
 - `components/booking-form.tsx`: accessible booking fields and redirect state.
+- `components/newsletter-form.tsx`: compact native homepage form that prefills the Substack signup page.
 - `lib/booking.ts`: validated Cal.com destination and query encoding.
 - `tests/booking.test.mjs`: destination/input validation and prefill tests.
 
