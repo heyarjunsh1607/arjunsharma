@@ -96,7 +96,6 @@ export default function Home() {
               placeholder="Email"
               required
               maxLength={254}
-              disabled={!newsletter.formAction}
               aria-describedby={!newsletter.formAction ? "newsletter-status" : undefined}
             />
             <button type="submit" disabled={!newsletter.formAction}>
