@@ -1,4 +1,4 @@
-import { faqs, services, site, steps } from "@/lib/content";
+import { faqs, homepage, services, site, steps } from "@/lib/content";
 
 export const dynamic = "force-static";
 
@@ -8,9 +8,9 @@ export function GET() {
   const body = [
     `# ${site.name}`,
     "",
-    `> ${site.description}`,
+    `> ${homepage.description}`,
     "",
-    `${site.name} is an independent SEO and AI Search consultant for design studios and agencies. The site is a single page at ${site.url}.`,
+    `${site.name} is a Growth Engineer at PixelUp Labs and an independent SEO and AI Search consultant for design studios and agencies. The homepage is at ${site.url}, and the full services, process, FAQ and booking page is at ${site.url}/services.`,
     "",
     "## Services",
     "",
@@ -26,6 +26,8 @@ export function GET() {
     "## Links",
     "",
     `- Website: ${site.url}`,
+    `- Services: ${site.url}/services`,
+    `- PixelUp Labs: ${site.pixelupUrl}`,
     `- Book a discovery call: ${site.bookingUrl}`,
     `- LinkedIn: ${site.linkedinUrl}`,
     `- X / Twitter: ${site.twitterUrl}`,

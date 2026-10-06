@@ -1,6 +1,6 @@
 # Arjun Sharma
 
-A statically prerendered Next.js App Router landing page. TypeScript, Tailwind CSS v4, server components and native HTML FAQ controls. Two small client components handle the discovery demo and booking form. Inter, Inter Display and JetBrains Mono are self-hosted through next/font with Latin subsets and font-swap support. No runtime font requests to Google, trackers, calendar embeds or stock imagery. The only third-party runtime library is Matter.js, which powers the footer's block playground and is fetched lazily once the footer scrolls near the viewport.
+A statically prerendered Next.js App Router site. `/` is a minimal personal homepage with a newsletter form, PixelUp Labs link, services link and social profiles. `/services` contains the full SEO and AI Search landing page, discovery demo, booking form and footer playground. TypeScript, Tailwind CSS v4, server components and native HTML FAQ controls. Inter, Inter Display and JetBrains Mono are self-hosted through next/font with Latin subsets and font-swap support. No runtime font requests to Google, trackers, calendar embeds or stock imagery. The only third-party runtime library is Matter.js, which powers the services footer's block playground and is fetched lazily once the footer scrolls near the viewport.
 
 ## Run
 
@@ -16,7 +16,9 @@ The default booking URL is `https://cal.com/arjun-sharma/discovery-call`. Overri
 
 All discovery-call CTAs lead to the name-and-email form. The submit button redirects to Cal.com with encoded `name` and `email` parameters while preserving existing event settings. The form mentions occasional studio-growth updates. It does not save submissions to a separate email list: Cal.com retains information through its booking process, and independent lead capture requires a chosen email platform or database.
 
-Replace the initial-based portrait placeholder in `app/page.tsx` with a real image using `next/image`, explicit width/height and responsive sizes. Do not substitute a fake portrait.
+Set `NEWSLETTER_FORM_ACTION` to the HTTPS POST action from your newsletter provider's hosted form, and `NEWSLETTER_EMAIL_FIELD` to its email field name (default `email`). Include any provider-required parameters in the action URL. The homepage submits directly to that provider, which handles confirmation and subscription consent. Until an action is configured, the signup is disabled and shows “Newsletter signup opens soon.” No email address is stored or claimed as subscribed locally. Rebuild after changing these settings.
+
+Replace the initial-based portrait placeholder in `app/services/page.tsx` with a real image using `next/image`, explicit width/height and responsive sizes. Do not substitute a fake portrait.
 
 Add verified results to `proof` and a verified quote, name and role to `testimonial` in `lib/content.ts`. Empty results stay out of the rendered page. Optional source URLs should point to actual evidence.
 
@@ -35,8 +37,8 @@ The production server defaults to port 3000. Use `npm start -- --port 3001` to c
 ## SEO
 
 - Title, description, canonical, Open Graph and Twitter metadata.
-- Generated social images, favicon, robots.txt, a single-URL sitemap and `/llms.txt` (a plain-text summary for AI crawlers, generated from `lib/content.ts`).
-- Person, WebSite, Service and FAQPage JSON-LD. No fabricated address, reviews or LocalBusiness details. FAQ markup is not a promise of Google rich results.
+- Route-specific social images, favicon, robots.txt, a sitemap covering `/` and `/services`, and `/llms.txt` (a plain-text summary for AI crawlers, generated from `lib/content.ts`).
+- Person and WebSite JSON-LD on the homepage; Service and FAQPage JSON-LD on `/services`. No fabricated address, reviews or LocalBusiness details. FAQ markup is not a promise of Google rich results.
 - One H1, question-form H2s, H3s for subtopics, visible FAQ text matching JSON-LD.
 - Reusable layout and content modules support future pages without creating thin duplicate routes.
 - Use route-specific titles, descriptions and canonicals when adding future pages; update the sitemap.
@@ -46,7 +48,8 @@ Deploy on a Next.js-compatible host. Connect www.arjunsharma.co as the canonical
 ## Editing
 
 - `lib/content.ts`: service/process/FAQ copy, destination URLs and evidence.
-- `app/page.tsx`: page sections and structured data.
+- `app/page.tsx` and `app/home.module.css`: minimal homepage, signup and links.
+- `app/services/page.tsx`: full service page sections and structured data.
 - `components/ui.tsx`: shared CTA, section label and icons.
 - `app/globals.css`: responsive design, focus states and reduced-motion support.
 - `app/layout.tsx`: shared metadata.

@@ -1,0 +1,188 @@
+:global(body):has(.page) {
+  padding-bottom: 0;
+  background: #fafaf9;
+}
+
+.page {
+  min-height: 100svh;
+  padding: 48px 24px 28px;
+  color: #20201e;
+  font-size: 15px;
+  line-height: 1.55;
+  letter-spacing: -0.018em;
+}
+
+.content {
+  max-width: 440px;
+  margin-inline: auto;
+}
+
+.name {
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.role {
+  margin-top: 3px;
+  color: #74746d;
+  font-size: 12px;
+}
+
+.intro {
+  margin-top: 24px;
+}
+
+.intro h1 {
+  max-width: none;
+  margin: 0;
+  font-family: var(--font-inter-display), var(--font-inter), sans-serif;
+  font-size: 34px;
+  font-weight: 600;
+  line-height: 1.14;
+  letter-spacing: -0.04em;
+}
+
+.intro > p {
+  margin-top: 12px;
+  color: #63635d;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.links {
+  margin-top: 24px;
+}
+
+.links h2 {
+  margin: 0 0 8px;
+  font-family: var(--font-inter), sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: -0.025em;
+}
+
+.links a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 48px;
+  padding-block: 13px;
+  border-bottom: 1px solid #e2e2dc;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.links a svg {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  color: #74746d;
+}
+
+.links a:hover span {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.notes {
+  margin-top: 24px;
+}
+
+.notes > p {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.signup {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.signup input {
+  flex: 1;
+  width: 0;
+  min-width: 0;
+  min-height: 44px;
+  padding: 10px 12px;
+  border: 1px solid #d8d8d1;
+  border-radius: 5px;
+  background: #fff;
+  color: inherit;
+  font-size: 14px;
+  letter-spacing: -0.015em;
+}
+
+.signup input::placeholder {
+  color: #74746d;
+}
+
+.signup button {
+  flex-shrink: 0;
+  min-height: 44px;
+  padding: 10px 15px;
+  border: 0;
+  border-radius: 5px;
+  background: #20201e;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.signup button:hover:enabled {
+  background: #454540;
+}
+
+.signup button:disabled {
+  background: #64645d;
+  cursor: not-allowed;
+}
+
+.notes .signupStatus {
+  margin-top: 7px;
+  color: #74746d;
+  font-size: 12px;
+}
+
+.page a:focus-visible,
+.signup input:focus-visible,
+.signup button:focus-visible {
+  outline: 2px solid #20201e;
+  outline-offset: 4px;
+}
+
+.footer {
+  margin-top: 16px;
+}
+
+.footer nav {
+  gap: 4px;
+  margin-left: -12px;
+}
+
+.footer a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
+  color: #63635d;
+}
+
+.footer a:hover {
+  color: #20201e;
+}
+
+@media (max-width: 480px) {
+  .page {
+    padding-top: 32px;
+  }
+
+  .intro h1 {
+    font-size: 32px;
+  }
+}

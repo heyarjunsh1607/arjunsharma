@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import localFont from "next/font/local";
-import { site } from "@/lib/content";
+import { homepage, site } from "@/lib/content";
 import "./globals.css";
 const interDisplay = localFont({
   src: [
@@ -40,9 +40,8 @@ const jetbrains = JetBrains_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
-  title: { default: site.title, template: "%s | Arjun Sharma" },
-  description: site.description,
-  alternates: { canonical: "/" },
+  title: { default: homepage.title, template: "%s | Arjun Sharma" },
+  description: homepage.description,
   authors: [{ name: site.name, url: site.url }],
   robots: {
     index: true,
@@ -60,13 +59,13 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: site.url,
     siteName: site.name,
-    title: site.title,
-    description: site.description,
+    title: homepage.title,
+    description: homepage.description,
   },
   twitter: {
     card: "summary_large_image",
-    title: site.title,
-    description: site.description,
+    title: homepage.title,
+    description: homepage.description,
   },
 };
 export const viewport: Viewport = {
