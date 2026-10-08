@@ -1,5 +1,4 @@
 import type { Metadata, Viewport } from "next";
-import Link from "next/link";
 import { Arrow } from "@/components/ui";
 import { NewsletterForm } from "@/components/newsletter-form";
 import { homepage, site } from "@/lib/content";
@@ -72,10 +71,6 @@ export default function Home() {
             <span>Growth Engineer at PixelUp Labs</span>
             <Arrow diagonal />
           </a>
-          <Link href="/services">
-            <span>Work with me for SEO + AI Search Funnel</span>
-            <Arrow diagonal />
-          </Link>
         </section>
 
         <section className={styles.notes} aria-label="Arjun’s notes">

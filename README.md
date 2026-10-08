@@ -1,6 +1,6 @@
 # Arjun Sharma
 
-A statically prerendered Next.js App Router site. `/` is a minimal personal homepage with a newsletter form, PixelUp Labs link, services link and social profiles. `/services` contains the full SEO and AI Search landing page, discovery demo, booking form and footer playground. TypeScript, Tailwind CSS v4, server components and native HTML FAQ controls. Inter, Inter Display and JetBrains Mono are self-hosted through next/font with Latin subsets and font-swap support. No runtime font requests to Google, trackers, calendar embeds or stock imagery. The only extra third-party browser library is Matter.js, which powers the services footer's block playground and is fetched lazily once the footer scrolls near the viewport.
+A statically prerendered Next.js App Router site. `/` is a minimal personal homepage with a newsletter form, PixelUp Labs link and social profiles. TypeScript, Tailwind CSS v4 and server components. Inter, Inter Display and JetBrains Mono are self-hosted through next/font with Latin subsets and font-swap support. No runtime font requests to Google, trackers, calendar embeds or stock imagery.
 
 ## Run
 
@@ -12,15 +12,9 @@ npm run dev
 
 ## Before launch
 
-The default booking URL is `https://cal.com/arjun-sharma/discovery-call`. Override it with `CAL_BOOKING_URL` if needed. The footer links to the supplied X and LinkedIn profiles. Override LinkedIn with `NEXT_PUBLIC_LINKEDIN_URL` if needed. Rebuild after changing either value.
-
-All discovery-call CTAs lead to the name-and-email form. The submit button redirects to Cal.com with encoded `name` and `email` parameters while preserving existing event settings. The form mentions occasional studio-growth updates. It does not save submissions to a separate email list: Cal.com retains information through its booking process, and independent lead capture requires a chosen email platform or database.
+The footer links to the supplied X and LinkedIn profiles. Override LinkedIn with `NEXT_PUBLIC_LINKEDIN_URL` if needed. Rebuild after changing the value.
 
 The homepage's “Get notes” form opens `https://arjunsh1607.substack.com/subscribe` with the entered email prefilled. Readers confirm their subscription on Substack, which handles the subscriber list and email delivery. The form works without JavaScript and does not claim an email is subscribed before that confirmation. Edit `site.substackUrl` in `lib/content.ts` to change publications. No newsletter API keys or separate subscriber storage are needed.
-
-Replace the initial-based portrait placeholder in `app/services/page.tsx` with a real image using `next/image`, explicit width/height and responsive sizes. Do not substitute a fake portrait.
-
-Add verified results to `proof` and a verified quote, name and role to `testimonial` in `lib/content.ts`. Empty results stay out of the rendered page. Optional source URLs should point to actual evidence.
 
 ## Checks
 
@@ -37,9 +31,9 @@ The production server defaults to port 3000. Use `npm start -- --port 3001` to c
 ## SEO
 
 - Title, description, canonical, Open Graph and Twitter metadata.
-- Route-specific social images, favicon, robots.txt, a sitemap covering `/` and `/services`, and `/llms.txt` (a plain-text summary for AI crawlers, generated from `lib/content.ts`).
-- Person and WebSite JSON-LD on the homepage; Service and FAQPage JSON-LD on `/services`. No fabricated address, reviews or LocalBusiness details. FAQ markup is not a promise of Google rich results.
-- One H1, question-form H2s, H3s for subtopics, visible FAQ text matching JSON-LD.
+- Homepage social images, favicon, robots.txt, a sitemap covering `/`, and `/llms.txt` (a plain-text summary for AI crawlers, generated from `lib/content.ts`).
+- Person and WebSite JSON-LD on the homepage. No fabricated address, reviews or LocalBusiness details.
+- One H1 and a question-form H2.
 - Reusable layout and content modules support future pages without creating thin duplicate routes.
 - Use route-specific titles, descriptions and canonicals when adding future pages; update the sitemap.
 
@@ -47,28 +41,12 @@ Deploy on a Next.js-compatible host. Connect www.arjunsharma.co as the canonical
 
 ## Editing
 
-- `lib/content.ts`: service/process/FAQ copy, destination URLs and evidence.
+- `lib/content.ts`: homepage metadata and destination URLs, plus retained service copy for future use.
 - `app/page.tsx` and `app/home.module.css`: minimal homepage, signup and links.
-- `app/services/page.tsx`: full service page sections and structured data.
 - `components/ui.tsx`: shared CTA, section label and icons.
 - `app/globals.css`: responsive design, focus states and reduced-motion support.
 - `app/layout.tsx`: shared metadata.
 
 No production deployment or external publishing is performed by local builds.
 
-## Discovery desktop identity
-
-The Heyclicky reference informs the window chrome and tactile controls. Original search-themed illustrations, violet and lime colors, and a pixel crawler give this page its own identity. The search window switches between Google and AI discovery examples. Click the crawler for field notes or open the field-notes folder for an easter egg. All work by keyboard and respect reduced-motion preferences. Illustrations are explicitly labeled and do not present fabricated results.
-
-- `components/discovery-desktop.tsx`: channel switch, crawler and secret folder.
-- `components/outcome-playground.tsx`: footer block playground. Matter.js rigid bodies with a pointer spring for dragging, keyboard nudge/toss, sleep-based idle and reduced-motion fallback.
-- `components/booking-form.tsx`: accessible booking fields and redirect state.
-- `components/newsletter-form.tsx`: compact native homepage form that prefills the Substack signup page.
-- `lib/booking.ts`: validated Cal.com destination and query encoding.
-- `tests/booking.test.mjs`: destination/input validation and prefill tests.
-
-## Typography and navigation
-
-Inter uses tight tracking (-0.045em for body, -0.075em for the hero). Main body text is 16–18px. JetBrains Mono is used for heading labels. A fixed bottom dock replaces the top navigation, with persistent labels, keyboard focus states, hover magnification and reduced-motion support. The page has bottom padding so footer content clears the dock.
-
-Inter Display Medium and SemiBold are used for headings, with the same tight spacing. Source and license notes are in `app/fonts/README.md`. Copy is written for established studio founders who rely on referrals and want more qualified enquiries. Key ideas use selective bold and soft highlights. Decorative platform tiles, search/chat objects, targets and envelope details are static CSS/SVG elements with no extra client JavaScript.
+The removed services page's components and copy remain in the repository for future use. They are not exposed by a route. The homepage newsletter form is in `components/newsletter-form.tsx`. Font source and license notes are in `app/fonts/README.md`.

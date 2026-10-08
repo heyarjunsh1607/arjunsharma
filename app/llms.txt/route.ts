@@ -1,4 +1,4 @@
-import { faqs, homepage, services, site, steps } from "@/lib/content";
+import { homepage, site } from "@/lib/content";
 
 export const dynamic = "force-static";
 
@@ -10,25 +10,13 @@ export function GET() {
     "",
     `> ${homepage.description}`,
     "",
-    `${site.name} is a Growth Engineer at PixelUp Labs and an independent SEO and AI Search consultant for design studios and agencies. The homepage is at ${site.url}, and the full services, process, FAQ and booking page is at ${site.url}/services.`,
+    `${site.name} is a Growth Engineer at PixelUp Labs. The homepage at ${site.url} includes notes on turning search into clients and links to his newsletter and social profiles.`,
     "",
-    "## Services",
-    "",
-    ...services.map((s) => `- ${s.title}: ${s.line}`),
-    "",
-    "## Process",
-    "",
-    ...steps.map(([title, detail], i) => `${i + 1}. ${title} — ${detail}`),
-    "",
-    "## FAQ",
-    "",
-    ...faqs.flatMap((f) => [`### ${f.question}`, "", f.answer, ""]),
     "## Links",
     "",
     `- Website: ${site.url}`,
-    `- Services: ${site.url}/services`,
     `- PixelUp Labs: ${site.pixelupUrl}`,
-    `- Book a discovery call: ${site.bookingUrl}`,
+    `- Newsletter: ${site.substackUrl}`,
     `- LinkedIn: ${site.linkedinUrl}`,
     `- X / Twitter: ${site.twitterUrl}`,
     `- Sitemap: ${site.url}/sitemap.xml`,
