@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, JetBrains_Mono } from "next/font/google";
+import { Albert_Sans, Inter, JetBrains_Mono } from "next/font/google";
 import localFont from "next/font/local";
 import { homepage, site } from "@/lib/content";
 import "./globals.css";
@@ -29,6 +29,12 @@ const inter = Inter({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-inter",
+});
+const albert = Albert_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  display: "swap",
+  variable: "--font-albert",
 });
 const jetbrains = JetBrains_Mono({
   subsets: ["latin"],
@@ -81,7 +87,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${interDisplay.variable} ${jetbrains.variable}`}
+      className={`${inter.variable} ${interDisplay.variable} ${albert.variable} ${jetbrains.variable}`}
     >
       <body>
         <a className="skip-link" href="#main">

@@ -1,6 +1,10 @@
 import type { Metadata, Viewport } from "next";
 import { Arrow } from "@/components/ui";
+import { CopyEmail } from "@/components/copy-email";
+import { Mark } from "@/components/mark";
 import { NewsletterForm } from "@/components/newsletter-form";
+import { QueryBar } from "@/components/query-bar";
+import { ScrambleText } from "@/components/scramble-text";
 import { homepage, site } from "@/lib/content";
 import styles from "./home.module.css";
 
@@ -8,7 +12,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/" },
 };
 
-export const viewport: Viewport = { themeColor: "#fafaf9" };
+export const viewport: Viewport = { themeColor: "#080808" };
 
 export default function Home() {
   const schema = {
@@ -48,54 +52,105 @@ export default function Home() {
           __html: JSON.stringify(schema).replace(/</g, "\\u003c"),
         }}
       />
-      <div className={styles.content}>
-        <header className={styles.profile}>
-          <p className={styles.name}>{site.name}</p>
-          <p className={styles.role}>Head of Growth</p>
+      <div className={styles.column}>
+        <header className={styles.hero}>
+          <Mark size={40} />
+          <div>
+            <p className={styles.name}>{site.name}</p>
+            <h1 className={styles.tagline}>
+              <span className={styles.mono}>Head of Growth</span> at PIXELUP
+              LABS{" "}
+              <span className={styles.dim}>
+                helping B2B startups get found on Google and AI Search, and
+                turn that visibility into client conversations.
+              </span>
+            </h1>
+          </div>
         </header>
 
-        <section className={styles.intro} aria-labelledby="intro-title">
-          <h1 id="intro-title">
-            B2B growth with
-            <br />
-            SEO + AI Search
-          </h1>
-          <p>
-            I help B2B startups get found on Google and AI Search, and turn
-            that visibility into client conversations.
-          </p>
+        <div className={styles.section}>
+          <QueryBar queries={homepage.queries} />
+        </div>
+
+        <section className={`${styles.section} ${styles.columns}`}>
+          <div>
+            <h2 className={styles.label}>
+              <ScrambleText text="Work" />
+            </h2>
+            <ul className={styles.list}>
+              <li>
+                <a href={site.pixelupUrl} target="_blank" rel="noopener noreferrer">
+                  <span>PIXELUP LABS</span>
+                  <Arrow diagonal />
+                </a>
+              </li>
+              <li>
+                <a href={`mailto:${site.email}`}>
+                  <span>{site.email}</span>
+                  <Arrow diagonal />
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h2 className={styles.label}>
+              <ScrambleText text="How can I help?" />
+            </h2>
+            <ul className={styles.list}>
+              {homepage.help.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </div>
         </section>
 
-        <section className={styles.links} aria-labelledby="links-title">
-          <h2 id="links-title">How can I help you?</h2>
-          <a href={site.pixelupUrl} target="_blank" rel="noopener noreferrer">
-            <span>Head of Growth at PIXELUP LABS</span>
-            <Arrow diagonal />
-          </a>
-          <a href={`mailto:${site.email}`}>
-            <span>{site.email}</span>
-            <Arrow diagonal />
-          </a>
-        </section>
-
-        <section className={styles.notes} aria-label="Arjun’s notes">
+        <section className={styles.section}>
+          <h2 className={styles.label}>
+            <ScrambleText text="Notes" />
+          </h2>
           <p>Get my notes on turning search into clients:</p>
           <NewsletterForm />
         </section>
 
-        <footer className={styles.footer}>
-          <nav aria-label="Social profiles">
-            <a href={site.twitterUrl} aria-label="Arjun Sharma on X" target="_blank" rel="noopener noreferrer">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                <path d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3L12 14.5 5.4 22H2.2l7.3-8.5L1.5 2H8l4.5 6.9L18.9 2Zm-1.1 18h1.7L7 3.9H5.2L17.8 20Z" />
-              </svg>
-            </a>
-            <a href={site.linkedinUrl} aria-label="Arjun Sharma on LinkedIn" target="_blank" rel="noopener noreferrer">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                <path d="M5.4 7.8H1.8V22h3.6V7.8ZM3.6 2a2.1 2.1 0 1 0 0 4.2 2.1 2.1 0 0 0 0-4.2ZM22.2 13.8c0-4.3-2.3-6.3-5.3-6.3a4.5 4.5 0 0 0-4 2.2V7.8H9.3V22h3.6v-7.1c0-1.9.4-3.7 2.8-3.7s2.9 2.1 2.9 3.8v7h3.6v-8.2Z" />
-              </svg>
-            </a>
-          </nav>
+        <section className={styles.section}>
+          <h2 className={styles.label}>
+            <ScrambleText text="Channels" />
+          </h2>
+          <ul className={styles.channels}>
+            <li>
+              <a href={site.twitterUrl} target="_blank" rel="noopener noreferrer">
+                x.com
+              </a>
+            </li>
+            <li>
+              <a href={site.linkedinUrl} target="_blank" rel="noopener noreferrer">
+                linkedin
+              </a>
+            </li>
+            <li>
+              <a href={site.substackUrl} target="_blank" rel="noopener noreferrer">
+                substack
+              </a>
+            </li>
+          </ul>
+        </section>
+
+        <footer className={`${styles.section} ${styles.footer}`}>
+          <div className={styles.footerRow}>
+            <p className={styles.status}>
+              <span className={styles.pulse} aria-hidden="true" />
+              Open to search &amp; AI crawlers
+            </p>
+            <CopyEmail email={site.email} />
+          </div>
+          <div className={styles.meta}>
+            <p>© {new Date().getFullYear()}</p>
+            <nav aria-label="Crawler files">
+              <a href="/llms.txt">llms.txt</a>
+              <a href="/sitemap.xml">sitemap.xml</a>
+              <a href="/robots.txt">robots.txt</a>
+            </nav>
+          </div>
         </footer>
       </div>
     </main>

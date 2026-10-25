@@ -1,6 +1,6 @@
 # Arjun Sharma
 
-A statically prerendered Next.js App Router site. `/` is a minimal personal homepage with a newsletter form, PIXELUP LABS and email links, and social profiles. TypeScript, Tailwind CSS v4 and server components. Inter, Inter Display and JetBrains Mono are self-hosted through next/font with Latin subsets and font-swap support. No runtime font requests to Google, trackers, calendar embeds or stock imagery.
+A statically prerendered Next.js App Router site. `/` is a dark, minimal personal homepage with a newsletter form, PIXELUP LABS and email links, social profiles and small SEO/AI Search details. TypeScript, Tailwind CSS v4 and server components. Albert Sans, Inter, Inter Display and JetBrains Mono are self-hosted through next/font with Latin subsets and font-swap support. No runtime font requests to Google, trackers, calendar embeds or stock imagery.
 
 ## Run
 
@@ -41,8 +41,10 @@ Deploy on a Next.js-compatible host. Connect www.arjunsharma.co as the canonical
 
 ## Editing
 
-- `lib/content.ts`: homepage metadata and destination URLs, plus retained service copy for future use.
-- `app/page.tsx` and `app/home.module.css`: minimal homepage, signup and links.
+- `lib/content.ts`: homepage metadata, destination URLs, the "How can I help?" list and the search bar's example queries, plus retained service copy for future use.
+- `app/page.tsx` and `app/home.module.css`: dark homepage layout, signup and links.
+- `components/mark.tsx` and `app/icon.svg`: the magnifier-and-sparkle mark used as the avatar and favicon. Keep the two in sync.
+- `components/query-bar.tsx`, `components/scramble-text.tsx` and `components/copy-email.tsx`: the typing search bar, decoding section labels and copy-email button. All respect reduced motion and work without JavaScript.
 - `components/ui.tsx`: shared CTA, section label and icons.
 - `app/globals.css`: responsive design, focus states and reduced-motion support.
 - `app/layout.tsx`: shared metadata.

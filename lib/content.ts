@@ -20,6 +20,20 @@ export const homepage = {
   title: "Arjun Sharma | Head of Growth, SEO + AI Search",
   description:
     "Head of Growth at PIXELUP LABS. I help B2B startups get found on Google and AI Search, and turn that visibility into client conversations.",
+  help: [
+    "AI search optimization",
+    "search engine optimization",
+    "technical SEO",
+    "content creation",
+    "authority & link building",
+  ],
+  // Example searches typed into the decorative search bar.
+  queries: [
+    { mode: "Search", text: "seo for b2b startups" },
+    { mode: "AI", text: "how do startups get cited in ai answers?" },
+    { mode: "Search", text: "technical seo audit for saas" },
+    { mode: "AI", text: "who helps b2b startups get found in ai search?" },
+  ],
 };
 
 if (
