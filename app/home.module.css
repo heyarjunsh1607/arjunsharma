@@ -114,10 +114,36 @@
   color: inherit;
   font-size: 14px;
   letter-spacing: -0.015em;
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
 }
 
 .signup input::placeholder {
   color: #74746d;
+}
+
+.signup input:hover {
+  border-color: #c2c2ba;
+}
+
+/* A transparent outline keeps focus visible in forced-colors mode. */
+.signup input:focus {
+  border-color: #20201e;
+  outline: 2px solid transparent;
+  box-shadow: 0 0 0 3px rgb(32 32 30 / 0.08);
+}
+
+/* Keep autofilled values on the white field instead of the browser's tint. */
+.signup input:-webkit-autofill {
+  box-shadow: inset 0 0 0 100px #fff;
+  -webkit-text-fill-color: #20201e;
+}
+
+.signup input:-webkit-autofill:focus {
+  box-shadow:
+    inset 0 0 0 100px #fff,
+    0 0 0 3px rgb(32 32 30 / 0.08);
 }
 
 .signup button {
@@ -149,7 +175,6 @@
 }
 
 .page a:focus-visible,
-.signup input:focus-visible,
 .signup button:focus-visible {
   outline: 2px solid #20201e;
   outline-offset: 4px;
