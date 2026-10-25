@@ -19,14 +19,15 @@ export default function Home() {
         "@id": `${site.url}/#person`,
         name: site.name,
         url: site.url,
-        jobTitle: "Growth Engineer",
+        jobTitle: "Head of Growth",
         description: homepage.description,
+        email: `mailto:${site.email}`,
         worksFor: {
           "@type": "Organization",
-          name: "PixelUp Labs",
+          name: "PIXELUP LABS",
           url: site.pixelupUrl,
         },
-        knowsAbout: ["SEO", "AI Search", "Organic growth for design studios"],
+        knowsAbout: ["SEO", "AI Search", "Organic growth for funded B2B startups"],
         sameAs: [site.linkedinUrl, site.twitterUrl],
       },
       {
@@ -50,7 +51,7 @@ export default function Home() {
       <div className={styles.content}>
         <header className={styles.profile}>
           <p className={styles.name}>{site.name}</p>
-          <p className={styles.role}>Growth Engineer</p>
+          <p className={styles.role}>Head of Growth</p>
         </header>
 
         <section className={styles.intro} aria-labelledby="intro-title">
@@ -60,15 +61,19 @@ export default function Home() {
             SEO + AI Search
           </h1>
           <p>
-            I help design studios get found on Google and AI Search, and turn
-            that visibility into client conversations.
+            I help funded B2B startups get found on Google and AI Search, and
+            turn that visibility into client conversations.
           </p>
         </section>
 
         <section className={styles.links} aria-labelledby="links-title">
           <h2 id="links-title">How can I help you?</h2>
           <a href={site.pixelupUrl} target="_blank" rel="noopener noreferrer">
-            <span>Growth Engineer at PixelUp Labs</span>
+            <span>Head of Growth at PIXELUP LABS</span>
+            <Arrow diagonal />
+          </a>
+          <a href={`mailto:${site.email}`}>
+            <span>{site.email}</span>
             <Arrow diagonal />
           </a>
         </section>

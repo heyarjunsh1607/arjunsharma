@@ -26,7 +26,7 @@ export default function Image() {
         </div>
       </div>
       <div style={{ display: "flex", fontSize: 22 }}>
-        Growth Engineer at PixelUp Labs · arjunsharma.co
+        Head of Growth at PIXELUP LABS · arjunsharma.co
       </div>
     </div>,
     size,

@@ -1,6 +1,6 @@
 # Arjun Sharma
 
-A statically prerendered Next.js App Router site. `/` is a minimal personal homepage with a newsletter form, PixelUp Labs link and social profiles. TypeScript, Tailwind CSS v4 and server components. Inter, Inter Display and JetBrains Mono are self-hosted through next/font with Latin subsets and font-swap support. No runtime font requests to Google, trackers, calendar embeds or stock imagery.
+A statically prerendered Next.js App Router site. `/` is a minimal personal homepage with a newsletter form, PIXELUP LABS and email links, and social profiles. TypeScript, Tailwind CSS v4 and server components. Inter, Inter Display and JetBrains Mono are self-hosted through next/font with Latin subsets and font-swap support. No runtime font requests to Google, trackers, calendar embeds or stock imagery.
 
 ## Run
 

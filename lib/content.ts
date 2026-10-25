@@ -13,12 +13,13 @@ export const site = {
   twitterUrl: "https://x.com/arjunsh1607",
   pixelupUrl: "https://www.pixeluplabs.com/",
   substackUrl: "https://arjunsh1607.substack.com",
+  email: "hey@arjunsharma.co",
 };
 
 export const homepage = {
-  title: "Arjun Sharma | Growth Engineer, SEO + AI Search",
+  title: "Arjun Sharma | Head of Growth, SEO + AI Search",
   description:
-    "Growth Engineer at PixelUp Labs. I help design studios get found on Google and AI Search, and turn that visibility into client conversations.",
+    "Head of Growth at PIXELUP LABS. I help funded B2B startups get found on Google and AI Search, and turn that visibility into client conversations.",
 };
 
 if (
