@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import styles from "@/app/home.module.css";
+import { PixelSearch } from "./pixel-icons";
 
 type Query = { mode: string; text: string };
 
@@ -46,10 +47,7 @@ export function QueryBar({ queries }: { queries: Query[] }) {
 
   return (
     <div className={styles.query} aria-hidden="true">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-        <circle cx="11" cy="11" r="6.5" />
-        <path d="m16 16 4.5 4.5" strokeLinecap="round" />
-      </svg>
+      <PixelSearch />
       <span className={styles.queryText}>
         {current.text.slice(0, length)}
         <span className={styles.caret} />

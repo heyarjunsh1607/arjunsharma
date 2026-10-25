@@ -28,7 +28,7 @@ export default function Image() {
         }}
       >
         <div style={{ display: "flex", alignItems: "center", gap: 18 }}>
-          <Mark size={56} />
+          <Mark size={64} />
           <div style={{ display: "flex", fontSize: 28, color: "rgba(255, 255, 255, 0.62)" }}>
             Arjun Sharma
           </div>

@@ -43,8 +43,21 @@
   padding: 148px 10px 44px;
 }
 
-.hero > svg {
+.avatar {
+  display: grid;
   flex-shrink: 0;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgb(255 255 255 / 0.1);
+  border-radius: 10px;
+  background: var(--field);
+  color: var(--fg-3);
+}
+
+.avatar svg {
+  width: 24px;
+  height: 24px;
 }
 
 .name {
@@ -63,11 +76,16 @@
   letter-spacing: -0.04em;
 }
 
+/* Pixel type is an accent: the role, decoding labels and crawler links. */
+.mono,
+.label [data-scrambling],
+.meta nav {
+  font-family: var(--font-pixel), var(--font-jetbrains), monospace;
+  letter-spacing: 0;
+}
+
 .mono {
-  font-family: var(--font-jetbrains), monospace;
-  font-size: 16.5px;
-  font-weight: 500;
-  letter-spacing: -0.06em;
+  font-size: 17px;
 }
 
 .dim {
@@ -109,12 +127,15 @@
   letter-spacing: -0.04em;
 }
 
+.section.querySection {
+  padding: 10px;
+}
+
 .query {
   display: flex;
   align-items: center;
   gap: 10px;
-  height: 46px;
-  padding: 0 5px 0 14px;
+  padding: 5px 5px 5px 14px;
   border: 1px solid rgb(255 255 255 / 0.1);
   border-radius: 8px;
   background: var(--field);
@@ -123,8 +144,8 @@
 
 .query > svg {
   flex-shrink: 0;
-  width: 17px;
-  height: 17px;
+  width: 18px;
+  height: 18px;
 }
 
 .queryText {
@@ -137,13 +158,14 @@
   letter-spacing: -0.02em;
 }
 
+/* A block cursor, like a terminal or an old game prompt. */
 .caret {
   display: inline-block;
-  width: 1.5px;
+  width: 0.5em;
   height: 1.05em;
   margin-left: 2px;
   vertical-align: -0.17em;
-  background: var(--fg);
+  background: rgb(255 255 255 / 0.85);
   animation: blink 1s steps(1) infinite;
 }
 
@@ -196,8 +218,8 @@
 
 .list a svg {
   flex-shrink: 0;
-  width: 13px;
-  height: 13px;
+  width: 14px;
+  height: 14px;
   color: var(--fg-3);
   transition:
     color 0.15s ease,
@@ -306,40 +328,12 @@
 }
 
 .footer {
-  padding-block: 64px 36px;
-}
-
-.footerRow {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
-}
-
-.status {
-  display: flex;
-  align-items: center;
-  gap: 9px;
-  color: var(--fg-2);
-}
-
-.pulse {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: #4ade80;
-  animation: pulse 2.4s ease-out infinite;
-}
-
-@keyframes pulse {
-  0% {
-    box-shadow: 0 0 0 0 rgb(74 222 128 / 0.45);
-  }
-  70%,
-  100% {
-    box-shadow: 0 0 0 7px rgb(74 222 128 / 0);
-  }
+  gap: 20px 24px;
+  padding-block: 64px 36px;
 }
 
 .copy {
@@ -354,8 +348,8 @@
 }
 
 .copy svg {
-  width: 15px;
-  height: 15px;
+  width: 16px;
+  height: 16px;
 }
 
 .copy:hover {
@@ -367,16 +361,13 @@
   flex-wrap: wrap;
   align-items: center;
   gap: 8px 24px;
-  margin-top: 56px;
   color: var(--fg-3);
 }
 
 .meta nav {
   display: flex;
   gap: 16px;
-  font-family: var(--font-jetbrains), monospace;
   font-size: 13px;
-  letter-spacing: -0.02em;
 }
 
 .page a:focus-visible,
@@ -400,6 +391,8 @@
   }
 
   .footer {
+    flex-direction: column-reverse;
+    align-items: flex-start;
     padding-block: 48px 32px;
   }
 }

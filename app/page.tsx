@@ -1,8 +1,8 @@
 import type { Metadata, Viewport } from "next";
-import { Arrow } from "@/components/ui";
 import { CopyEmail } from "@/components/copy-email";
-import { Mark } from "@/components/mark";
+import { MarkGlyph } from "@/components/mark";
 import { NewsletterForm } from "@/components/newsletter-form";
+import { PixelArrow } from "@/components/pixel-icons";
 import { QueryBar } from "@/components/query-bar";
 import { ScrambleText } from "@/components/scramble-text";
 import { homepage, site } from "@/lib/content";
@@ -54,7 +54,9 @@ export default function Home() {
       />
       <div className={styles.column}>
         <header className={styles.hero}>
-          <Mark size={40} />
+          <span className={styles.avatar}>
+            <MarkGlyph />
+          </span>
           <div>
             <p className={styles.name}>{site.name}</p>
             <h1 className={styles.tagline}>
@@ -68,7 +70,7 @@ export default function Home() {
           </div>
         </header>
 
-        <div className={styles.section}>
+        <div className={`${styles.section} ${styles.querySection}`}>
           <QueryBar queries={homepage.queries} />
         </div>
 
@@ -81,13 +83,13 @@ export default function Home() {
               <li>
                 <a href={site.pixelupUrl} target="_blank" rel="noopener noreferrer">
                   <span>PIXELUP LABS</span>
-                  <Arrow diagonal />
+                  <PixelArrow />
                 </a>
               </li>
               <li>
                 <a href={`mailto:${site.email}`}>
                   <span>{site.email}</span>
-                  <Arrow diagonal />
+                  <PixelArrow />
                 </a>
               </li>
             </ul>
@@ -136,13 +138,6 @@ export default function Home() {
         </section>
 
         <footer className={`${styles.section} ${styles.footer}`}>
-          <div className={styles.footerRow}>
-            <p className={styles.status}>
-              <span className={styles.pulse} aria-hidden="true" />
-              Open to search &amp; AI crawlers
-            </p>
-            <CopyEmail email={site.email} />
-          </div>
           <div className={styles.meta}>
             <p>© {new Date().getFullYear()}</p>
             <nav aria-label="Crawler files">
@@ -151,6 +146,7 @@ export default function Home() {
               <a href="/robots.txt">robots.txt</a>
             </nav>
           </div>
+          <CopyEmail email={site.email} />
         </footer>
       </div>
     </main>

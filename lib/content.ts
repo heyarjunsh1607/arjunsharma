@@ -26,6 +26,8 @@ export const homepage = {
     "technical SEO",
     "content creation",
     "authority & link building",
+    "positioning",
+    "CRO",
   ],
   // Example searches typed into the decorative search bar.
   queries: [

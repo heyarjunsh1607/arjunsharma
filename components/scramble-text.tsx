@@ -6,23 +6,30 @@ const glyphs = "abcdefghijklmnopqrstuvwxyz0123456789&+/?";
 const duration = 700;
 
 // Decodes the text from random glyphs the first time it scrolls into view.
-// Screen readers get the plain text; the animated copy is hidden from them.
+// The real text stays in the page throughout, so crawlers and screen readers
+// always read it once; the glyphs are a brief overlay marked data-scrambling.
 export function ScrambleText({ text }: { text: string }) {
   const ref = useRef<HTMLSpanElement>(null);
-  const [display, setDisplay] = useState(text);
+  const [overlay, setOverlay] = useState<string | null>(null);
 
   useEffect(() => {
     const node = ref.current;
     if (!node || window.matchMedia("(prefers-reduced-motion: reduce)").matches)
       return;
-    let frame = 0;
-    let last = 0;
-    const run = (start: number) => (now: number) => {
-      const progress = Math.min((now - start) / duration, 1);
-      if (now - last > 45 || progress === 1) {
-        last = now;
+    // A timer rather than animation frames, so the decode still finishes if
+    // the tab is hidden partway through.
+    let timer = 0;
+    const run = () => {
+      const start = performance.now();
+      const tick = () => {
+        const progress = Math.min((performance.now() - start) / duration, 1);
+        if (progress === 1) {
+          window.clearInterval(timer);
+          setOverlay(null);
+          return;
+        }
         const settled = Math.floor(progress * text.length);
-        setDisplay(
+        setOverlay(
           [...text]
             .map((char, i) =>
               i < settled || char === " "
@@ -31,27 +38,36 @@ export function ScrambleText({ text }: { text: string }) {
             )
             .join(""),
         );
-      }
-      if (progress < 1) frame = requestAnimationFrame(run(start));
+      };
+      tick();
+      timer = window.setInterval(tick, 45);
     };
     const observer = new IntersectionObserver(([entry]) => {
       if (!entry.isIntersecting) return;
       observer.disconnect();
-      frame = requestAnimationFrame((now) => run(now)(now));
+      run();
     });
     observer.observe(node);
     return () => {
       observer.disconnect();
-      cancelAnimationFrame(frame);
+      window.clearInterval(timer);
     };
   }, [text]);
 
   return (
-    <>
-      <span className="sr-only">{text}</span>
-      <span ref={ref} aria-hidden="true">
-        {display}
+    <span ref={ref} style={{ position: "relative" }}>
+      <span style={overlay === null ? undefined : { color: "transparent" }}>
+        {text}
       </span>
-    </>
+      {overlay !== null && (
+        <span
+          aria-hidden="true"
+          data-scrambling
+          style={{ position: "absolute", top: 0, left: 0, whiteSpace: "nowrap" }}
+        >
+          {overlay}
+        </span>
+      )}
+    </span>
   );
 }
