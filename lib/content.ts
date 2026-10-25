@@ -12,6 +12,10 @@ export const site = {
     "https://www.linkedin.com/in/arjunsh1607/",
   twitterUrl: "https://x.com/arjunsh1607",
   pixelupUrl: "https://www.pixeluplabs.com/",
+  // The homepage link only, tagged so PIXELUP LABS analytics can attribute
+  // visits from this site. Structured data and llms.txt keep the clean URL.
+  pixelupLink:
+    "https://www.pixeluplabs.com/?utm_source=arjunsharma.co&utm_medium=referral&utm_campaign=personal_site",
   substackUrl: "https://arjunsh1607.substack.com",
   email: "hey@arjunsharma.co",
 };

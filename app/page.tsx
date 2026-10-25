@@ -81,7 +81,7 @@ export default function Home() {
             </h2>
             <ul className={styles.list}>
               <li>
-                <a href={site.pixelupUrl} target="_blank" rel="noopener noreferrer">
+                <a href={site.pixelupLink} target="_blank" rel="noopener noreferrer">
                   <span>PIXELUP LABS</span>
                   <PixelArrow />
                 </a>
