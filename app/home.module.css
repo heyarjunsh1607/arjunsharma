@@ -76,11 +76,17 @@
   letter-spacing: -0.04em;
 }
 
-/* Pixel type is an accent: the role, decoding labels and crawler links. */
+/* Pixel type is an accent: the role, section labels, buttons and crawler
+   links. It has one weight, so never let the browser fake a bold. */
 .mono,
-.label [data-scrambling],
+.label,
+.modes,
+.signup button,
+.copy,
 .meta nav {
   font-family: var(--font-pixel), var(--font-jetbrains), monospace;
+  font-weight: 400;
+  font-synthesis: none;
   letter-spacing: 0;
 }
 
@@ -120,11 +126,9 @@
 .label {
   margin: 0 0 16px;
   color: var(--fg-2);
-  font-family: inherit;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 400;
   line-height: 1.2;
-  letter-spacing: -0.04em;
 }
 
 .section.querySection {
@@ -183,7 +187,6 @@
   border-radius: 6px;
   background: rgb(255 255 255 / 0.05);
   font-size: 12px;
-  letter-spacing: -0.01em;
 }
 
 .modes span {
@@ -299,8 +302,6 @@
   background: var(--fg);
   color: #080808;
   font-size: 15px;
-  font-weight: 500;
-  letter-spacing: -0.02em;
   cursor: pointer;
 }
 
@@ -343,7 +344,6 @@
   min-height: 40px;
   padding: 8px 12px;
   border: 1px solid rgb(255 255 255 / 0.14);
-  font-weight: 500;
   transition: background 0.15s ease;
 }
 
