@@ -27,7 +27,7 @@ export default function Home() {
           name: "PIXELUP LABS",
           url: site.pixelupUrl,
         },
-        knowsAbout: ["SEO", "AI Search", "Organic growth for funded B2B startups"],
+        knowsAbout: ["SEO", "AI Search", "Organic growth for B2B startups"],
         sameAs: [site.linkedinUrl, site.twitterUrl],
       },
       {
@@ -61,8 +61,8 @@ export default function Home() {
             SEO + AI Search
           </h1>
           <p>
-            I help funded B2B startups get found on Google and AI Search, and
-            turn that visibility into client conversations.
+            I help B2B startups get found on Google and AI Search, and turn
+            that visibility into client conversations.
           </p>
         </section>
 
