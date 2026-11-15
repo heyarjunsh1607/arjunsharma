@@ -81,7 +81,7 @@
 .mono,
 .label,
 .modes,
-.signup button,
+.cta,
 .copy,
 .meta nav {
   font-family: var(--font-pixel), var(--font-jetbrains), monospace;
@@ -242,78 +242,33 @@
   text-underline-offset: 4px;
 }
 
-.signup {
-  display: flex;
+.cta {
+  display: inline-flex;
+  align-items: center;
   gap: 8px;
-  margin-top: 14px;
-}
-
-.signup input {
-  flex: 1;
-  width: 0;
-  min-width: 0;
   min-height: 44px;
-  padding: 10px 14px;
-  border: 1px solid rgb(255 255 255 / 0.1);
-  border-radius: 6px;
-  background: var(--field);
-  color: var(--fg);
-  font-size: 15px;
-  letter-spacing: -0.02em;
-  caret-color: var(--fg);
-  transition:
-    border-color 0.15s ease,
-    box-shadow 0.15s ease;
-}
-
-.signup input::placeholder {
-  color: var(--fg-3);
-}
-
-.signup input:hover {
-  border-color: rgb(255 255 255 / 0.18);
-}
-
-/* A transparent outline keeps focus visible in forced-colors mode. */
-.signup input:focus {
-  border-color: rgb(255 255 255 / 0.5);
-  outline: 2px solid transparent;
-  box-shadow: 0 0 0 3px rgb(255 255 255 / 0.06);
-}
-
-/* Keep autofilled values on the dark field instead of the browser's tint. */
-.signup input:-webkit-autofill {
-  box-shadow: inset 0 0 0 100px #0f0f0f;
-  -webkit-text-fill-color: var(--fg);
-}
-
-.signup input:-webkit-autofill:focus {
-  box-shadow:
-    inset 0 0 0 100px #0f0f0f,
-    0 0 0 3px rgb(255 255 255 / 0.06);
-}
-
-.signup button {
-  flex-shrink: 0;
-  min-height: 44px;
+  margin-top: 16px;
   padding: 10px 16px;
-  border: 0;
   border-radius: 6px;
   background: var(--fg);
   color: #080808;
   font-size: 15px;
-  cursor: pointer;
+  transition: background 0.15s ease;
 }
 
-.signup button:hover:enabled {
+.cta svg {
+  flex-shrink: 0;
+  width: 14px;
+  height: 14px;
+  transition: transform 0.15s ease;
+}
+
+.cta:hover {
   background: rgb(255 255 255 / 0.86);
 }
 
-.signupStatus {
-  margin-top: 10px;
-  color: var(--fg-3);
-  font-size: 13px;
-  letter-spacing: -0.01em;
+.cta:hover svg {
+  transform: translate(1px, -1px);
 }
 
 .channels {
@@ -370,8 +325,7 @@
   font-size: 13px;
 }
 
-.page a:focus-visible,
-.signup button:focus-visible {
+.page a:focus-visible {
   outline: 2px solid var(--fg);
   outline-offset: 4px;
 }

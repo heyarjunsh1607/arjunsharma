@@ -1,6 +1,6 @@
 # Arjun Sharma
 
-A statically prerendered Next.js App Router site. `/` is a dark, minimal personal homepage with a newsletter form, PIXELUP LABS and email links, social profiles and small SEO/AI Search details. TypeScript, Tailwind CSS v4 and server components. Albert Sans, Geist Pixel (a small pixel accent), Inter, Inter Display and JetBrains Mono are self-hosted through next/font with Latin subsets and font-swap support. No runtime font requests to Google, trackers, calendar embeds or stock imagery.
+A statically prerendered Next.js App Router site. `/` is a dark, minimal personal homepage with an AI Search Memo newsletter link, PIXELUP LABS and email links, social profiles and small SEO/AI Search details. TypeScript, Tailwind CSS v4 and server components. Albert Sans, Geist Pixel (a small pixel accent), Inter, Inter Display and JetBrains Mono are self-hosted through next/font with Latin subsets and font-swap support. No runtime font requests to Google, trackers, calendar embeds or stock imagery.
 
 ## Run
 
@@ -14,7 +14,7 @@ npm run dev
 
 The footer links to the supplied X and LinkedIn profiles. Override LinkedIn with `NEXT_PUBLIC_LINKEDIN_URL` if needed. Rebuild after changing the value.
 
-The homepage's “Get notes” form opens `https://arjunsh1607.substack.com/subscribe` with the entered email prefilled. Readers confirm their subscription on Substack, which handles the subscriber list and email delivery. The form works without JavaScript and does not claim an email is subscribed before that confirmation. Edit `site.substackUrl` in `lib/content.ts` to change publications. No newsletter API keys or separate subscriber storage are needed.
+The homepage's primary CTA, “Read the latest SEO advice”, links to the AI Search Memo newsletter at `https://arjunsh1607.substack.com`, where readers can read posts and subscribe. Edit `site.substackUrl` in `lib/content.ts` to change publications.
 
 ## Checks
 
@@ -42,7 +42,7 @@ Deploy on a Next.js-compatible host. Connect www.arjunsharma.co as the canonical
 ## Editing
 
 - `lib/content.ts`: homepage metadata, destination URLs, the "How can I help?" list and the search bar's example queries, plus retained service copy for future use.
-- `app/page.tsx` and `app/home.module.css`: dark homepage layout, signup and links.
+- `app/page.tsx` and `app/home.module.css`: dark homepage layout, newsletter CTA and links.
 - `components/mark.tsx` and `app/icon.svg`: the pixel magnifier-and-sparkle mark used as the avatar and favicon, drawn from one text grid. Keep the two in sync.
 - `components/pixel-icons.tsx`: pixel-art icons (search, arrow, copy, check) drawn from text grids.
 - `components/query-bar.tsx`, `components/scramble-text.tsx` and `components/copy-email.tsx`: the typing search bar, decoding section labels and copy-email button. All respect reduced motion and work without JavaScript.
@@ -52,4 +52,4 @@ Deploy on a Next.js-compatible host. Connect www.arjunsharma.co as the canonical
 
 No production deployment or external publishing is performed by local builds.
 
-The removed services page's components and copy remain in the repository for future use. They are not exposed by a route. The homepage newsletter form is in `components/newsletter-form.tsx`. Font source and license notes are in `app/fonts/README.md`.
+The removed services page's components and copy remain in the repository for future use. They are not exposed by a route. The homepage newsletter CTA is in `components/newsletter-cta.tsx`. Font source and license notes are in `app/fonts/README.md`.

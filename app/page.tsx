@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { CopyEmail } from "@/components/copy-email";
 import { MarkGlyph } from "@/components/mark";
-import { NewsletterForm } from "@/components/newsletter-form";
+import { NewsletterCta } from "@/components/newsletter-cta";
 import { PixelArrow } from "@/components/pixel-icons";
 import { QueryBar } from "@/components/query-bar";
 import { ScrambleText } from "@/components/scramble-text";
@@ -108,10 +108,13 @@ export default function Home() {
 
         <section className={styles.section}>
           <h2 className={styles.label}>
-            <ScrambleText text="Notes" />
+            <ScrambleText text="AI Search Memo" />
           </h2>
-          <p>Get my notes on turning search into clients:</p>
-          <NewsletterForm />
+          <p>
+            My newsletter on getting found on Google and AI Search, and turning
+            that into clients.
+          </p>
+          <NewsletterCta />
         </section>
 
         <section className={styles.section}>
