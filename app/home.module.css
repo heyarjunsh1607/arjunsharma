@@ -243,9 +243,11 @@
 }
 
 .cta {
-  display: inline-flex;
+  display: flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
+  width: 100%;
   min-height: 44px;
   margin-top: 16px;
   padding: 10px 16px;
@@ -256,10 +258,11 @@
   transition: background 0.15s ease;
 }
 
+/* 15% smaller than the 14px list arrows. */
 .cta svg {
   flex-shrink: 0;
-  width: 14px;
-  height: 14px;
+  width: 12px;
+  height: 12px;
   transition: transform 0.15s ease;
 }
 
