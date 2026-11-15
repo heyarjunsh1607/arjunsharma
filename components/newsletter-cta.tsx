@@ -10,7 +10,7 @@ export function NewsletterCta() {
       rel="noopener noreferrer"
       className={styles.cta}
     >
-      <span>Read the latest SEO advice</span>
+      <span>Get actionable AI Search advice</span>
       <PixelArrow />
     </a>
   );

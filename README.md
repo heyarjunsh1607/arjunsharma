@@ -1,6 +1,6 @@
 # Arjun Sharma
 
-A statically prerendered Next.js App Router site. `/` is a dark, minimal personal homepage with an AI Search Memo newsletter link, PIXELUP LABS and email links, social profiles and small SEO/AI Search details. TypeScript, Tailwind CSS v4 and server components. Albert Sans, Geist Pixel (a small pixel accent), Inter, Inter Display and JetBrains Mono are self-hosted through next/font with Latin subsets and font-swap support. No runtime font requests to Google, trackers, calendar embeds or stock imagery.
+A statically prerendered Next.js App Router site. `/` is a dark, minimal personal homepage with an AI Search Memo newsletter link, PIXELUP LABS and email links, social profiles and small SEO/AI Search details. TypeScript, Tailwind CSS v4 and server components. Albert Sans, Geist Pixel (a small pixel accent), Inter, Inter Display and JetBrains Mono are self-hosted through next/font with Latin subsets and font-swap support. No runtime font requests to Google, calendar embeds or stock imagery. Google Tag Manager (container `GTM-N2LZWK4V`) loads from `app/layout.tsx`.
 
 ## Run
 
@@ -14,7 +14,7 @@ npm run dev
 
 The footer links to the supplied X and LinkedIn profiles. Override LinkedIn with `NEXT_PUBLIC_LINKEDIN_URL` if needed. Rebuild after changing the value.
 
-The homepage's primary CTA, “Read the latest SEO advice”, links to the AI Search Memo newsletter at `https://arjunsh1607.substack.com`, where readers can read posts and subscribe. Edit `site.substackUrl` in `lib/content.ts` to change publications.
+The homepage's primary CTA, “Get actionable AI Search advice”, links to the AI Search Memo newsletter at `https://arjunsh1607.substack.com`, where readers can read posts and subscribe. Edit `site.substackUrl` in `lib/content.ts` to change publications.
 
 ## Checks
 

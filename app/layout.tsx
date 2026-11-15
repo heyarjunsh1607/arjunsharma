@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Albert_Sans, Geist_Pixel, Inter, JetBrains_Mono } from "next/font/google";
 import localFont from "next/font/local";
+import Script from "next/script";
 import { homepage, site } from "@/lib/content";
 import "./globals.css";
 const interDisplay = localFont({
@@ -96,6 +97,16 @@ export default function RootLayout({
       className={`${inter.variable} ${interDisplay.variable} ${albert.variable} ${pixel.variable} ${jetbrains.variable}`}
     >
       <body>
+        {/* Google Tag Manager */}
+        <Script
+          src="https://www.googletagmanager.com/gtm.js?id=GTM-N2LZWK4V"
+          strategy="afterInteractive"
+        />
+        <Script id="gtm-init" strategy="afterInteractive">
+          {`window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());`}
+        </Script>
         <a className="skip-link" href="#main">
           Skip to content
         </a>
