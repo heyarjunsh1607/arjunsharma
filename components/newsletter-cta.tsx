@@ -5,7 +5,7 @@ import { PixelArrow } from "@/components/pixel-icons";
 export function NewsletterCta() {
   return (
     <a
-      href={site.substackUrl}
+      href={site.substackCtaLink}
       target="_blank"
       rel="noopener noreferrer"
       className={styles.cta}

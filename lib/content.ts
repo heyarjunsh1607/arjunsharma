@@ -16,7 +16,13 @@ export const site = {
   // visits from this site. Structured data and llms.txt keep the clean URL.
   pixelupLink:
     "https://www.pixeluplabs.com/?utm_source=arjunsharma.co&utm_medium=referral&utm_campaign=personal_site",
-  substackUrl: "https://arjunsh1607.substack.com",
+  substackUrl: "https://aisearchmemo.substack.com/",
+  // Homepage links to AI Search Memo, tagged for Substack's traffic stats.
+  // utm_content tells the main button apart from the channels link.
+  substackCtaLink:
+    "https://aisearchmemo.substack.com/?utm_source=arjunsharma.co&utm_medium=referral&utm_campaign=personal_site&utm_content=cta_button",
+  substackChannelLink:
+    "https://aisearchmemo.substack.com/?utm_source=arjunsharma.co&utm_medium=referral&utm_campaign=personal_site&utm_content=channels",
   email: "hey@arjunsharma.co",
 };
 

@@ -14,7 +14,7 @@ npm run dev
 
 The footer links to the supplied X and LinkedIn profiles. Override LinkedIn with `NEXT_PUBLIC_LINKEDIN_URL` if needed. Rebuild after changing the value.
 
-The homepage's primary CTA, “Get actionable AI Search advice”, links to the AI Search Memo newsletter at `https://arjunsh1607.substack.com`, where readers can read posts and subscribe. Edit `site.substackUrl` in `lib/content.ts` to change publications.
+The homepage's primary CTA, “Get actionable AI Search advice”, links to the AI Search Memo newsletter at `https://aisearchmemo.substack.com/`, where readers can read posts and subscribe. Homepage links carry UTM tags (`utm_content=cta_button` or `channels`); `llms.txt` uses the clean URL. Edit `site.substackUrl`, `site.substackCtaLink` and `site.substackChannelLink` in `lib/content.ts` to change publications.
 
 ## Checks
 

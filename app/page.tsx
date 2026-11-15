@@ -133,7 +133,7 @@ export default function Home() {
               </a>
             </li>
             <li>
-              <a href={site.substackUrl} target="_blank" rel="noopener noreferrer">
+              <a href={site.substackChannelLink} target="_blank" rel="noopener noreferrer">
                 substack
               </a>
             </li>
